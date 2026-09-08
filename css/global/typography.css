@@ -1,0 +1,12 @@
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.1; }
+h1 { font-size: 40px; }
+h2 { font-size: 28px; }
+h3 { font-size: 20px; }
+p { font-size: 15px; color: var(--color-text-muted); }
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}

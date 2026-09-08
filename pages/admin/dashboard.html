@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — AICHE Cairo</title>
+
+  <link rel="stylesheet" href="../../css/global/variables.css">
+  <link rel="stylesheet" href="../../css/global/reset.css">
+  <link rel="stylesheet" href="../../css/global/typography.css">
+  <link rel="stylesheet" href="../../css/components/navbar.css">
+  <link rel="stylesheet" href="../../css/components/buttons.css">
+  <link rel="stylesheet" href="../../css/components/cards.css">
+  <link rel="stylesheet" href="../../css/pages/admin/dashboard.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__brand">
+      <img src="../../assets/images/logo.png" alt="AICHE Cairo" width="32">
+      <span>AICHE CAIRO<br><small>STUDENT CHAPTER</small></span>
+    </div>
+    <div class="navbar__links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="courses-management.html">Learning</a>
+      <a href="#">Community</a>
+      <a href="#">•••</a>
+    </div>
+    <a href="#" class="btn btn--primary">My profile</a>
+  </nav>
+
+  <main class="dashboard">
+    <section class="dashboard__header">
+  <span class="eyebrow">Committee Operations · Upper Management</span>
+  <h1>Make the chapter <span class="highlight">move well.</span></h1>
+  <p>A clear view of people, programs, and the small operational decisions that keep member experiences strong.</p>
+  <a href="#" class="btn btn--primary">Create an update</a>
+</section>
+
+<section class="dashboard__stats">
+  <div class="card">
+    <span class="stat-label">Active members</span>
+    <div class="stat-value">184</div>
+    <span class="stat-sub">+12 since September</span>
+  </div>
+  <div class="card card--sage">
+    <span class="stat-label">Published learning</span>
+    <div class="stat-value">14</div>
+    <span class="stat-sub">3 awaiting review</span>
+  </div>
+  <div class="card card--accent">
+    <span class="stat-label">Attendance this month</span>
+    <div class="stat-value">72%</div>
+    <span class="stat-sub">+8 pts vs last month</span>
+  </div>
+  <div class="card">
+    <span class="stat-label">Open tasks</span>
+    <div class="stat-value">27</div>
+    <span class="stat-sub">9 need an owner</span>
+  </div>
+</section>
+
+<section class="dashboard__actions">
+  <h3>Quick actions</h3>
+  <div class="actions-row">
+    <button class="btn btn--quiet">Invite a member</button>
+    <button class="btn btn--quiet">Publish content</button>
+    <button class="btn btn--quiet">Add an event</button>
+    <button class="btn btn--quiet">Review permissions</button>
+  </div>
+</section>
+
+<section class="dashboard__panels">
+  <div class="card">
+    <span class="eyebrow">Recent activity</span>
+    <h3>The chapter pulse.</h3>
+    <ul class="activity-list">
+      <li>Youssef Khalil completed Process Safety Foundations — 12 min ago</li>
+      <li>Events committee published Plant Tour: Cairo Oil Refining</li>
+    </ul>
+  </div>
+  <div class="card card--sage">
+    <span class="eyebrow">Semester health</span>
+    <h3>A good system leaves clues.</h3>
+    <p>Use the signals below to decide where the team needs attention.</p>
+    <div class="stat-row">
+      <span>Member retention</span>
+      <strong>86%</strong>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <script src="../../js/global/main.js"></script>
+  <script src="../../js/global/navbar.js"></script>
+  <script src="../../js/pages/admin/dashboard.js"></script>
+</body>
+</html>
