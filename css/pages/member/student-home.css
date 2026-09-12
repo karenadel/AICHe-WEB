@@ -1,0 +1,400 @@
+* {
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* html,body{
+    background-color: var(--color-bg);
+    font-family: var(--font-base);
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+
+} */
+
+main{
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+}
+
+.menu-items{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.menu-btn:focus{
+    outline: none;
+}
+
+.welcome span{
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+}
+
+.welcome h1{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.welcome p{
+    font-size: 15px;
+    color: var(--color-text-muted);
+}
+
+.learning-overview{
+    margin-top: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 24px;
+    background-color: var(--color-white);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+}
+
+.cards > *{
+    min-width: 0;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 15px;
+    font-size: 10px;
+    color: var(--color-text-muted);
+}
+
+.cards > div {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.cards > div h3{
+    font-size: 15px;
+    margin: 4px 0 6px 0;
+}
+
+.cards > div p{
+    font-size: 24px;
+    color: var(--color-text);
+    margin: 0 ;
+    font-weight: bold;
+}
+
+.learning-overview p{
+    font-size: 15px;
+    color: var(--color-text-muted);
+}
+
+.Certificate_text, .In_progress_text, .Courses_text, .Completed_Courses_text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.Completed-Courses, .In-progress, .Certificate, .Enrolled-Courses{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+}
+
+.Completed-Courses:hover, .In-progress:hover, .Certificate:hover, .Enrolled-Courses:hover{
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+}
+
+.Container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 15px;
+    padding: 15px 0;
+}
+
+.continue-learning{
+    background-color: var( --color-white);
+}
+.Events{
+    background-color: var(--color-sage);
+}
+.workshops{
+    background-color: var(--color-white);
+}
+
+.continue-learning, .Events, .workshops{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 12px 24px ;
+    transition: transform 0.5s ease;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+}
+
+.continue-learning:hover, .Events:hover, .workshops:hover, .card4:hover{
+    transform: translateY(-4px) translateX(4px);
+    box-shadow: -4px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.continue-learning h2, .Events h2, .workshops h2, .learning-overview h2{
+    font-size: 18px;
+    margin: 4px 0 4px 0;
+}
+
+.continue-learning p, .Events p, .workshops p, .learning-overview p{
+    font-size: 12px;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.course-card{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 12px ;
+    margin-top: 15px;
+}
+
+.course-card img{
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.event-card img{
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+}
+
+.event-card_2, .event-card_1, .event-card_3{
+    display: flex;
+    border-top: 1px solid var(--color-border);
+    padding: 12px ;
+}
+
+.continue-learning_card{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.course-card h3{
+    font-size: 15px;
+    margin: 4px 0 4px 0;
+}
+
+.course-card button{
+    cursor: pointer;
+    border-radius: 8px;
+    border-color: var(--color-border);
+    align-items: center;
+    padding: 10px 18px;
+    background-color: var(--color-primary);
+    width: fit-content ;
+    margin-top: 10px;
+    color: var(--color-white);
+}
+
+.learning-header, .event-header, .workshop-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.learning_info, .event_info, .workshop_info, .learning-overview_info{
+    display: flex;
+    flex-direction: column;
+}
+
+.workshop-card, .event-card{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.card_1 h3, .card_2 h3, .card_3 h3{
+    font-size: 15px;
+    margin: 0;
+}
+
+.card_1, .card_2, .card_3{
+    display: flex;
+    flex-direction: column;
+    padding: 0 12px; 
+}
+
+.card1::before,
+.card2::before,
+.card3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 4px;
+    border-radius: 2px;
+}
+
+.card1::before {
+    background-color: var(--color-primary);
+}
+
+.card2::before {
+    background-color: var(--color-sage);
+}
+
+.card3::before {
+    background-color: var(--color-dark);
+}
+
+.card1, .card2, .card3{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 24px;
+    border-top: 1px solid var(--color-border);
+}
+
+.card1 h3, .card2 h3, .card3 h3{
+    font-size: 15px;
+    margin: 4px 0 4px 0;
+}
+
+.card1 p, .card2 p, .card3 p{
+    font-size: 12px;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.certificates {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 24px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+}
+
+.Completed-Courses_icon{
+    background-color: var(--color-completed);
+}
+
+.In-progress_icon{
+    background-color: var(--color-in-progress);
+}
+
+.Enrolled-Courses_icon{
+    background-color: var(--color-enrolled);
+}
+
+.Certificate_icon,.certificate_icon{
+    background-color: var(--color-certificate);
+}
+
+.certificate_icon,
+.Enrolled-Courses_icon,
+.Completed-Courses_icon,
+.In-progress_icon ,
+.Certificate_icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certificate_info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.certificate_text {
+    display: flex;
+    flex-direction: column;
+}
+
+.certificate_text h2 {
+    font-size: 18px;
+    margin: 4px 0 4px 0;
+}
+
+.certificate_text p {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.view-all {
+    color: var(--color-text-muted);
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+footer{
+    background-color: var(--color-dark);
+    padding: 35px 40px;
+    text-align: center;
+    color: var(--color-white);
+}
+
+@media (max-width: 1030px) {
+    .navbar__links{
+        display: none;
+    }
+    .menu-btn{
+        display: block;
+    }
+}
+
+@media (max-width: 1200px) {
+    .cards{
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 15px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .Container {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 15px;
+    }
+}
+
+@media (max-width: 873px) {
+    .cards {
+        grid-template-columns: 1fr;
+        row-gap: 15px;
+    }
+}
+
+@media (max-width: 686px) {
+    .Container {
+        grid-template-columns: 1fr;
+        row-gap: 15px;
+    }
+}
