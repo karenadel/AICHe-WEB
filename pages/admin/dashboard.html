@@ -14,82 +14,61 @@
   <link rel="stylesheet" href="../../css/pages/admin/dashboard.css">
 </head>
 <body>
+<nav class="navbar">
+  <div class="navbar__brand">
+    <img src="../../assets/images/logo.png" alt="AICHE Cairo" width="32">
+    <span>AICHE CAIRO<br><small>STUDENT CHAPTER</small></span>
+  </div>
 
-  <nav class="navbar">
-    <div class="navbar__brand">
-      <img src="../../assets/images/logo.png" alt="AICHE Cairo" width="32">
-      <span>AICHE CAIRO<br><small>STUDENT CHAPTER</small></span>
-    </div>
-    <div class="navbar__links">
-      <a href="dashboard.html">Dashboard</a>
-      <a href="courses-management.html">Learning</a>
-      <a href="#">Community</a>
-      <a href="#">•••</a>
-    </div>
-    <a href="#" class="btn btn--primary">My profile</a>
-  </nav>
+  <button class="menu-btn" aria-label="Toggle menu">☰</button>
 
-  <main class="dashboard">
-    <section class="dashboard__header">
-  <span class="eyebrow">Committee Operations · Upper Management</span>
-  <h1>Web Development Committee<span class="highlight"> dashboard</span></h1>
-  <p>A clear view of people, programs, and the small operational decisions that keep member experiences strong.</p>
-  <a href="#" class="btn btn--primary">Create an update</a>
-</section>
+  <div class="navbar__links">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="courses-management.html">Learning</a>
+    <a href="#">Community</a>
+    <!-- TODO: no Community page exists in scope yet — leave as # until one is defined -->
+    <a href="#">•••</a>
+    <!-- TODO: overflow menu, not wired yet -->
+  </div>
 
-<section class="dashboard__stats">
-  <div class="card">
-    <span class="stat-label">Active members</span>
-    <div class="stat-value">184</div>
-    <span class="stat-sub">+12 since September</span>
-  </div>
-  <div class="card card--sage">
-    <span class="stat-label">Published learning</span>
-    <div class="stat-value">14</div>
-    <span class="stat-sub">3 awaiting review</span>
-  </div>
-  <div class="card card--accent">
-    <span class="stat-label">Attendance this month</span>
-    <div class="stat-value">72%</div>
-    <span class="stat-sub">+8 pts vs last month</span>
-  </div>
-  <div class="card">
-    <span class="stat-label">Open tasks</span>
-    <div class="stat-value">27</div>
-    <span class="stat-sub">9 need an owner</span>
-  </div>
-</section>
+  <a href="#" class="btn btn--primary" id="profileLabel">Profile</a>
+</nav>
 
-<section class="dashboard__actions">
-  <h3>Quick actions</h3>
-  <div class="actions-row">
-    <button class="btn btn--quiet">Invite a member</button>
-    <button class="btn btn--quiet">Publish content</button>
-    <button class="btn btn--quiet">Add an event</button>
-    <button class="btn btn--quiet">Review permissions</button>
-  </div>
-</section>
+  <div class="dashboard-layout">
 
-<section class="dashboard__panels">
-  <div class="card">
-    <span class="eyebrow">Recent activity</span>
-    <h3>The chapter pulse.</h3>
-    <ul class="activity-list">
-      <li>Youssef Khalil completed Process Safety Foundations — 12 min ago</li>
-      <li>Events committee published Plant Tour: Cairo Oil Refining</li>
-    </ul>
+    <aside class="sidebar" id="managementNav">
+      <h4 class="sidebar__title">Management</h4>
+      <ul class="sidebar__list" id="managementList"></ul>
+    </aside>
+
+    <main class="dashboard">
+
+      <section class="dashboard__header welcome">
+        <span class="eyebrow" id="dashboardEyebrow">Committee Operations</span>
+        <h1 id="dashboardTitle">Admin Dashboard</h1>
+        <p>Overview of AICHE activities, users, and content.</p>
+      </section>
+
+      <section class="dashboard__stats" id="statsGrid"></section>
+
+      <section class="dashboard__actions">
+        <h3>Quick Actions</h3>
+        <div class="actions-row" id="quickActions"></div>
+      </section>
+
+      <section class="dashboard__panels">
+        <div class="activity-panel">
+          <h2>Recent Activity</h2>
+          <div class="activity-list" id="activityList"></div>
+        </div>
+      </section>
+
+    </main>
   </div>
-  <div class="card card--sage">
-    <span class="eyebrow">Semester health</span>
-    <h3>A good system leaves clues.</h3>
-    <p>Use the signals below to decide where the team needs attention.</p>
-    <div class="stat-row">
-      <span>Member retention</span>
-      <strong>86%</strong>
-    </div>
-  </div>
-</section>
-  </main>
+
+  <footer>
+    <p>© 2026 AICHE Cairo Student Chapter</p>
+  </footer>
 
   <script src="../../js/global/main.js"></script>
   <script src="../../js/global/navbar.js"></script>
