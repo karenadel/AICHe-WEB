@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses Management — AICHE Cairo</title>
+
+    <link rel="stylesheet" href="../../css/global/variables.css">
+    <link rel="stylesheet" href="../../css/global/reset.css">
+    <link rel="stylesheet" href="../../css/global/typography.css">
+    <link rel="stylesheet" href="../../css/components/navbar.css">
+    <link rel="stylesheet" href="../../css/components/buttons.css">
+    <link rel="stylesheet" href="../../css/components/cards.css">
+    <link rel="stylesheet" href="../../css/components/tables.css">
+    <link rel="stylesheet" href="../../css/components/admin-layout.css">
+    <link rel="stylesheet" href="../../css/pages/admin/courses-management.css">
+</head>
+<body>
+
+  <nav class="navbar">
+        <div class="navbar__brand">
+        <img src="../../assets/images/logo.png" alt="AICHE Cairo" width="32">
+        <span>AICHE CAIRO<br><small>STUDENT CHAPTER</small></span>
+    </div>
+
+    <button class="menu-btn" aria-label="Toggle menu">☰</button>
+
+    <div class="navbar__links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="courses-management.html">Learning</a>
+        <a href="#">Community</a>
+        <!-- TODO: no Community page exists in scope yet — leave as # until one is defined -->
+        <a href="#">•••</a>
+        <!-- TODO: overflow menu, not wired yet -->
+  </div>
+
+  <a href="#" class="btn btn--primary" id="profileLabel">Profile</a>
+  </nav>
+
+  <div class="dashboard-layout">
+
+    <aside class="sidebar" id="managementNav">
+      <h4 class="sidebar__title">Management</h4>
+      <ul class="sidebar__list" id="managementList"></ul>
+    </aside>
+
+    <main class="dashboard">
+
+      <section class="dashboard__header">
+        <span class="eyebrow">Manage Content</span>
+        <h1>Courses</h1>
+        <p>Create and manage courses for your committee.</p>
+      </section>
+
+      <section class="page-toolbar">
+        <input type="text" id="courseSearch" placeholder="Search courses...">
+        <button class="action-btn" id="addCourseBtn" hidden>Add Course</button>
+      </section>
+
+      <section class="courses-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Course Name</th>
+              <th>Students</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="coursesTableBody">
+            <!-- rendered by JS -->
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>© 2026 AICHE Cairo Student Chapter</p>
+  </footer>
+
+  <script src="../../js/global/main.js"></script>
+  <script src="../../js/global/navbar.js"></script>
+  <script src="../../js/global/admin-auth.js"></script>
+  <script src="../../js/pages/admin/courses-management.js"></script>
+</body>
+</html>

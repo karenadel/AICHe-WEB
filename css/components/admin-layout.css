@@ -1,0 +1,146 @@
+/* ============================================================
+   ADMIN LAYOUT — shared shell for every /pages/admin/*.html page
+   Used by: dashboard, courses-management, workshops-management,
+   events-management, sessions-management, database, users,
+   student-progress, member-progress, attendance, points,
+   feedback-reports, access-control
+   ============================================================ */
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-lg);
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+/* ---------- Sidebar / Management nav ---------- */
+.sidebar {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 20px;
+  background-color: var(--color-white);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  height: fit-content;
+}
+
+.sidebar__title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.sidebar__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar__list a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: background-color 0.2s ease;
+}
+
+.sidebar__list a:hover {
+  background-color: var(--color-bg);
+}
+
+/* ---------- Page header (title + eyebrow + subtext) ---------- */
+.dashboard__header span.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+}
+
+.dashboard__header h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 8px 0;
+  line-height: 1.1;
+}
+
+.dashboard__header p {
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Generic action button (used for Add X buttons) ---------- */
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  padding: 14px 18px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+.action-btn:hover {
+  transform: translateY(-4px) translateX(4px);
+  box-shadow: -4px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Generic panel/card wrapper (tables, activity, etc.) ---------- */
+.panel {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 24px;
+  background-color: var(--color-white);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+}
+
+.panel h2 {
+  font-size: 18px;
+  margin: 4px 0 4px 0;
+}
+
+/* ============================================================
+   RESPONSIVE — same breakpoints for every admin page
+   ============================================================ */
+
+@media (max-width: 1000px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .dashboard {
+    order: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .dashboard-layout {
+    padding: var(--space-sm);
+    gap: var(--space-sm);
+  }
+
+  .dashboard__header h1 {
+    font-size: 28px;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+}
