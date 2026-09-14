@@ -102,10 +102,11 @@ function requireAnyPermission(user, keys, redirectTo = 'dashboard.html') {
   return true;
 }
 
-// ---- Render: Management sidebar (identical on every admin page) ----
 function renderManagementNav(user) {
   const list = document.getElementById('managementList');
   if (!list) return;
+
+  const currentPage = window.location.pathname.split('/').pop();
 
   const visible = managementConfig.filter(item => {
     if (item.keys) return canAny(user, ...item.keys);
@@ -113,6 +114,9 @@ function renderManagementNav(user) {
   });
 
   list.innerHTML = visible.length
-    ? visible.map(item => `<li><a href="${item.href}">${item.label}</a></li>`).join('')
+    ? visible.map(item => {
+        const activeClass = item.href === currentPage ? ' class="is-active"' : '';
+        return `<li><a href="${item.href}"${activeClass}>${item.label}</a></li>`;
+      }).join('')
     : `<li>No management sections available.</li>`;
 }

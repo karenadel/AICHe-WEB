@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Details — AICHE Cairo</title>
+
+  <link rel="stylesheet" href="../../css/global/variables.css">
+  <link rel="stylesheet" href="../../css/global/reset.css">
+  <link rel="stylesheet" href="../../css/global/typography.css">
+  <link rel="stylesheet" href="../../css/components/navbar.css">
+  <link rel="stylesheet" href="../../css/components/buttons.css">
+  <link rel="stylesheet" href="../../css/components/cards.css">
+  <link rel="stylesheet" href="../../css/components/admin-layout.css">
+  <link rel="stylesheet" href="../../css/pages/admin/course-details.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__brand">
+      <img src="../../assets/images/logo.png" alt="AICHE Cairo" width="32">
+      <span>AICHE CAIRO<br><small>STUDENT CHAPTER</small></span>
+    </div>
+
+    <button class="menu-btn" aria-label="Toggle menu">☰</button>
+
+    <div class="navbar__links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="courses-management.html">Learning</a>
+      <a href="#">Community</a>
+      <a href="#">•••</a>
+    </div>
+
+    <a href="#" class="btn btn--primary" id="profileLabel">Profile</a>
+  </nav>
+
+  <div class="dashboard-layout">
+
+    <aside class="sidebar" id="managementNav">
+      <h4 class="sidebar__title">Management</h4>
+      <ul class="sidebar__list" id="managementList"></ul>
+    </aside>
+
+    <main class="dashboard">
+
+      <a href="courses-management.html" class="back-link">← Back to Courses</a>
+
+      <section class="dashboard__header">
+        <span class="eyebrow">Course Details</span>
+        <h1 id="courseTitle">Loading course...</h1>
+        <p id="courseDescription"></p>
+      </section>
+
+      <section class="course-info panel">
+        <h2>Course Info</h2>
+        <div class="course-info__grid">
+          <div>
+            <span class="info-label">Students Enrolled</span>
+            <p id="courseStudents">—</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="course-parts panel">
+        <div class="course-parts__header">
+          <h2>Course Parts</h2>
+          <button class="action-btn" id="addPartBtn" hidden>Add Part</button>
+        </div>
+        <p class="course-parts__note">
+          Parts are completed in sequence: Lecture → Task → Quiz → Final Exam.
+        </p>
+        <ol class="parts-list" id="partsList"></ol>
+      </section>
+
+      <section class="certificate-settings panel">
+        <h2>Certificate Settings</h2>
+        <p id="certificateStatus">—</p>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>© 2026 AICHE Cairo Student Chapter</p>
+  </footer>
+
+  <script src="../../js/global/main.js"></script>
+  <script src="../../js/global/navbar.js"></script>
+  <script src="../../js/global/admin-auth.js"></script>
+  <script src="../../js/pages/admin/course-details.js"></script>
+</body>
+</html>

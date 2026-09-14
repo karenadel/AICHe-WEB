@@ -144,3 +144,14 @@
     padding: 16px;
   }
 }
+
+.sidebar__list a.is-active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.sidebar__list a.is-active:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
