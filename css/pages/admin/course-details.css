@@ -109,3 +109,22 @@
     gap: 6px;
   }
 }
+
+.course-info__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+  margin-top: 12px;
+}
+
+@media (max-width: 700px) {
+  .course-info__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-info__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -14,6 +14,9 @@ const mockCoursesById = {
     id: 1,
     name: "Process Safety Foundations",
     description: "Make safer decisions earlier. A practical course in hazard recognition, safeguards, and the language of process safety.",
+    instructor: "Eng. Youssef Khalil",
+    level: "Intermediate",
+    duration: "6 hours",
     students: 32,
     certificateEnabled: true,
     parts: [
@@ -28,6 +31,9 @@ const mockCoursesById = {
     id: 2,
     name: "Excel for Process Engineers",
     description: "Build a clean model for mass balances, scenarios, and decisions your team can trust.",
+    instructor: "Eng. Mariam Hassan",
+    level: "Open to all",
+    duration: "9 hours",
     students: 45,
     certificateEnabled: false,
     parts: [
@@ -37,16 +43,20 @@ const mockCoursesById = {
   }
 };
 
+function renderCourseInfo(course) {
+  document.getElementById('courseTitle').textContent = course.name;
+  document.getElementById('courseDescription').textContent = course.description;
+  document.getElementById('courseInstructor').textContent = course.instructor;
+  document.getElementById('courseLevel').textContent = course.level;
+  document.getElementById('courseDuration').textContent = course.duration;
+  document.getElementById('courseStudents').textContent = course.students;
+}
+
 function getCourseIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
   return Number(params.get('id'));
 }
 
-function renderCourseInfo(course) {
-  document.getElementById('courseTitle').textContent = course.name;
-  document.getElementById('courseDescription').textContent = course.description;
-  document.getElementById('courseStudents').textContent = course.students;
-}
 
 function renderParts(parts) {
   const list = document.getElementById('partsList');
