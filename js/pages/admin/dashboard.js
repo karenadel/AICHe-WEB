@@ -34,19 +34,22 @@ const quickActionsConfig = [
 ];
 
 function renderTitle(user) {
+
   const title = document.getElementById('dashboardTitle');
   const eyebrow = document.getElementById('dashboardEyebrow');
-  const profileLabel = document.getElementById('profileLabel');
 
   if (user.role === 'committee_admin') {
+
     title.textContent = `${user.committee} Committee Dashboard`;
     eyebrow.textContent = `${user.committee} Committee`;
-    profileLabel.textContent = user.committee;
+
   } else {
+
     title.textContent = 'Admin Dashboard';
     eyebrow.textContent = 'Upper Management';
-    profileLabel.textContent = user.role.toUpperCase();
+
   }
+
 }
 
 function renderStats(stats) {
