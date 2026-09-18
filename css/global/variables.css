@@ -9,10 +9,10 @@
   --color-border: #E2DED4;
 
     /* Shared status colors (already used on Student Home — reused here for consistency) */
-  --color-completed: #B4C4A8;
-  --color-in-progress: #E8722C;
-  --color-enrolled: #108D84;
-  --color-certificate: #E8722C;
+  --color-completed: #E8EFE2;
+  --color-in-progress: #FCE4D6;
+  --color-enrolled: #D8F3F1;
+  --color-certificate: #FCE4D6;
 
   /* Admin dashboard stat colors */
   --color-students: #108D84;
