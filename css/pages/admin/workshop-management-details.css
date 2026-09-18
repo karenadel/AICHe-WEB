@@ -1,0 +1,729 @@
+/* ============================================================
+   WORKSHOP MANAGEMENT DETAILS
+   Page-specific styles only.
+   Layout shell comes from admin-layout.css.
+   ============================================================ */
+
+
+/* ============================================================
+   BACK LINK
+   ============================================================ */
+
+.back-link {
+  display: inline-block;
+
+  font-size: 13px;
+
+  color: var(--color-text-muted);
+
+  text-decoration: none;
+
+  margin-bottom: var(--space-sm);
+}
+
+.back-link:hover {
+  color: var(--color-primary);
+}
+
+
+/* ============================================================
+   GENERAL PANEL
+   ============================================================ */
+
+.panel {
+  margin-top: var(--space-md);
+}
+
+
+/* ============================================================
+   WORKSHOP HEADER
+   ============================================================ */
+
+.workshop-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 24px;
+
+  margin-top: 8px;
+}
+
+.workshop-header__content {
+  min-width: 0;
+}
+
+.workshop-header__content h1 {
+  margin-bottom: 8px;
+}
+
+.workshop-header__content p {
+  max-width: 720px;
+
+  color: var(--color-text-muted);
+
+  line-height: 1.6;
+}
+
+.workshop-header__actions {
+  display: flex;
+
+  gap: 8px;
+
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   WORKSHOP INFO
+   ============================================================ */
+
+.workshop-info__grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(180px, 1fr));
+
+  gap: 24px;
+
+  margin-top: 16px;
+}
+
+.info-item {
+  min-width: 0;
+}
+
+.info-label {
+  display: block;
+
+  font-size: 12px;
+
+  color: var(--color-text-muted);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.04em;
+}
+
+.workshop-info__grid p {
+  font-size: 15px;
+
+  color: var(--color-text);
+
+  margin: 5px 0 0;
+
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   SESSIONS HEADER
+   ============================================================ */
+
+.workshop-sessions__header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+.section-eyebrow {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.06em;
+
+  color: var(--color-text-muted);
+}
+
+
+/* ============================================================
+   SESSIONS LIST
+   ============================================================ */
+
+.sessions-list {
+  list-style: decimal;
+
+  margin-top: 18px;
+
+  padding-left: 28px;
+}
+
+.session-item {
+  padding: 16px;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: 8px;
+
+  margin-bottom: 12px;
+
+  border-left: 3px solid var(--color-workshops);
+
+  background: var(--color-surface);
+}
+
+.session-item__content {
+  min-width: 0;
+}
+
+.session-item__title {
+  font-size: 15px;
+
+  font-weight: 700;
+
+  margin: 0 0 7px;
+}
+
+.session-item__description {
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  color: var(--color-text-muted);
+
+  margin: 0 0 10px;
+}
+
+.session-item__meta {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  font-size: 12px;
+
+  color: var(--color-text-muted);
+
+  margin: 0;
+}
+
+.session-item__mode {
+  text-transform: uppercase;
+
+  font-weight: 600;
+
+  letter-spacing: 0.03em;
+
+  color: var(--color-workshops);
+}
+
+.session-item__materials {
+  margin-top: 10px;
+
+  font-size: 12px;
+
+  color: var(--color-text-muted);
+}
+
+.session-item__materials a {
+  color: var(--color-primary);
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+.session-item__materials a:hover {
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   SESSION ACTIONS
+   ============================================================ */
+
+.session-item__actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  margin-top: 14px;
+
+  padding-top: 12px;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.session-action-btn {
+  border: 1px solid var(--color-border);
+
+  background: transparent;
+
+  color: var(--color-text);
+
+  border-radius: 6px;
+
+  padding: 6px 11px;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.session-action-btn:hover {
+  border-color: var(--color-primary);
+
+  color: var(--color-primary);
+}
+
+.session-action-btn--delete:hover {
+  border-color: #c94a4a;
+
+  color: #c94a4a;
+}
+
+
+/* ============================================================
+   EMPTY SESSIONS
+   ============================================================ */
+
+.session-item--empty {
+  list-style: none;
+
+  margin-left: -28px;
+
+  border-left: 1px solid var(--color-border);
+
+  color: var(--color-text-muted);
+
+  text-align: center;
+}
+
+.session-item--empty p {
+  margin: 0;
+
+  font-size: 13px;
+}
+
+
+/* ============================================================
+   CERTIFICATE
+   ============================================================ */
+
+.certificate-settings__header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 16px;
+}
+
+.certificate-settings > p {
+  max-width: 800px;
+
+  margin-top: 12px;
+
+  color: var(--color-text-muted);
+
+  line-height: 1.6;
+
+  font-size: 13px;
+}
+
+.status-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.04em;
+}
+
+.status-badge--enabled {
+  color: var(--color-workshops);
+
+  border: 1px solid var(--color-workshops);
+
+  background: transparent;
+}
+
+.certificate-settings__rule {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+.certificate-rule {
+  padding: 13px 15px;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: 8px;
+}
+
+.certificate-rule strong {
+  display: block;
+
+  font-size: 13px;
+
+  margin-bottom: 4px;
+}
+
+.certificate-rule span {
+  font-size: 12px;
+
+  color: var(--color-text-muted);
+
+  line-height: 1.5;
+}
+
+
+/* ============================================================
+   ACTION BUTTONS
+   ============================================================ */
+
+.action-btn {
+  border: 1px solid var(--color-primary);
+
+  background: var(--color-primary);
+
+  color: #fff;
+
+  border-radius: 7px;
+
+  padding: 9px 14px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.action-btn:hover {
+  opacity: 0.9;
+}
+
+.action-btn:active {
+  transform: translateY(1px);
+}
+
+.action-btn--secondary {
+  background: transparent;
+
+  color: var(--color-text);
+
+  border-color: var(--color-border);
+}
+
+.action-btn--secondary:hover {
+  border-color: var(--color-primary);
+
+  color: var(--color-primary);
+}
+
+.action-btn--danger {
+  background: transparent;
+
+  border-color: #c94a4a;
+
+  color: #c94a4a;
+}
+
+.action-btn--danger:hover {
+  background: #c94a4a;
+
+  color: #fff;
+}
+
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal__overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.modal__content {
+  position: relative;
+
+  z-index: 1;
+
+  width: min(560px, 100%);
+
+  max-height: calc(100vh - 40px);
+
+  overflow-y: auto;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: 12px;
+
+  padding: 24px;
+
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ============================================================
+   MODAL HEADER
+   ============================================================ */
+
+.modal__header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 16px;
+
+  margin-bottom: 22px;
+}
+
+.modal__header h2 {
+  margin: 0;
+}
+
+.modal__close {
+  width: 32px;
+
+  height: 32px;
+
+  border: 1px solid var(--color-border);
+
+  background: transparent;
+
+  color: var(--color-text-muted);
+
+  border-radius: 6px;
+
+  font-size: 20px;
+
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.modal__close:hover {
+  color: var(--color-text);
+
+  border-color: var(--color-primary);
+}
+
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--color-border);
+
+  background: var(--color-surface);
+
+  color: var(--color-text);
+
+  border-radius: 7px;
+
+  padding: 10px 11px;
+
+  font: inherit;
+
+  font-size: 13px;
+
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--color-primary);
+}
+
+.form-group textarea {
+  resize: vertical;
+
+  min-height: 100px;
+}
+
+.form-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+
+/* ============================================================
+   MODAL ACTIONS
+   ============================================================ */
+
+.modal__actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  margin-top: 24px;
+
+  padding-top: 16px;
+
+  border-top: 1px solid var(--color-border);
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+  .workshop-header {
+    flex-direction: column;
+  }
+
+  .workshop-header__actions {
+    width: 100%;
+  }
+
+  .workshop-header__actions .action-btn {
+    flex: 1;
+  }
+
+  .workshop-info__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .certificate-settings__rule {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .workshop-sessions__header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .workshop-sessions__header .action-btn {
+    width: 100%;
+  }
+
+  .session-item__meta {
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+  .session-item__actions {
+    justify-content: stretch;
+  }
+
+  .session-action-btn {
+    flex: 1;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    padding: 10px;
+  }
+
+  .modal__content {
+    padding: 18px;
+  }
+
+  .modal__actions {
+    flex-direction: column-reverse;
+  }
+
+  .modal__actions .action-btn {
+    width: 100%;
+  }
+
+}

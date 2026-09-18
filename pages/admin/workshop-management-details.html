@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Workshop Management — AICHE Cairo</title>
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="../../css/global/variables.css">
+  <link rel="stylesheet" href="../../css/global/reset.css">
+  <link rel="stylesheet" href="../../css/global/typography.css">
+
+  <!-- Shared Components -->
+  <link rel="stylesheet" href="../../css/components/navbar.css">
+  <link rel="stylesheet" href="../../css/components/buttons.css">
+  <link rel="stylesheet" href="../../css/components/cards.css">
+  <link rel="stylesheet" href="../../css/components/admin-layout.css">
+
+  <!-- Page CSS -->
+  <link
+    rel="stylesheet"
+    href="../../css/pages/admin/workshop-management-details.css"
+  >
+</head>
+
+<body>
+
+  <!-- ========================================================
+       NAVBAR
+       ======================================================== -->
+
+  <nav class="navbar">
+
+    <div class="navbar__brand">
+      <img
+        src="../../assets/images/logo.png"
+        alt="AICHE Cairo"
+        width="32"
+      >
+
+      <span>
+        AICHE CAIRO
+        <br>
+        <small>STUDENT CHAPTER</small>
+      </span>
+    </div>
+
+    <button
+      class="menu-btn"
+      aria-label="Toggle menu"
+      type="button"
+    >
+      ☰
+    </button>
+
+    <div class="navbar__links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="courses-management.html">Learning</a>
+      <a href="#">Community</a>
+      <a href="#">•••</a>
+    </div>
+
+    <a
+      href="#"
+      class="btn btn--primary"
+      id="profileLabel"
+    >
+      Profile
+    </a>
+
+  </nav>
+
+
+  <!-- ========================================================
+       DASHBOARD LAYOUT
+       ======================================================== -->
+
+  <div class="dashboard-layout">
+
+    <!-- ======================================================
+         SIDEBAR
+         ====================================================== -->
+
+    <aside
+      class="sidebar"
+      id="managementNav"
+    >
+
+      <h4 class="sidebar__title">
+        Management
+      </h4>
+
+      <ul
+        class="sidebar__list"
+        id="managementList"
+      ></ul>
+
+    </aside>
+
+
+    <!-- ======================================================
+         MAIN CONTENT
+         ====================================================== -->
+
+    <main class="dashboard">
+
+      <!-- Back -->
+      <a
+        href="workshops-management.html"
+        class="back-link"
+      >
+        ← Back to Workshops
+      </a>
+
+
+      <!-- ====================================================
+           WORKSHOP HEADER
+           ==================================================== -->
+
+      <section class="dashboard__header">
+
+        <span class="eyebrow">
+          Workshop Management
+        </span>
+
+        <div class="workshop-header">
+
+          <div class="workshop-header__content">
+
+            <h1 id="workshopTitle">
+              Loading workshop...
+            </h1>
+
+            <p id="workshopDescription"></p>
+
+          </div>
+
+
+          <!-- Workshop Actions -->
+
+          <div class="workshop-header__actions">
+
+            <button
+              type="button"
+              class="action-btn"
+              id="editWorkshopBtn"
+              hidden
+            >
+              Edit Workshop
+            </button>
+
+            <button
+              type="button"
+              class="action-btn action-btn--danger"
+              id="deleteWorkshopBtn"
+              hidden
+            >
+              Delete Workshop
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ====================================================
+           WORKSHOP INFO
+           ==================================================== -->
+
+      <section class="workshop-info panel">
+
+        <h2>
+          Workshop Info
+        </h2>
+
+        <div class="workshop-info__grid">
+
+          <div class="info-item">
+
+            <span class="info-label">
+              Instructor / Speaker
+            </span>
+
+            <p id="workshopInstructor">
+              —
+            </p>
+
+          </div>
+
+          <div class="info-item">
+
+            <span class="info-label">
+              Number of Sessions
+            </span>
+
+            <p id="workshopSessionCount">
+              0
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ====================================================
+           SESSIONS
+           ==================================================== -->
+
+      <section class="workshop-sessions panel">
+
+        <div class="workshop-sessions__header">
+
+          <div>
+
+            <span class="section-eyebrow">
+              Workshop Content
+            </span>
+
+            <h2>
+              Sessions
+            </h2>
+
+          </div>
+
+          <button
+            type="button"
+            class="action-btn"
+            id="addSessionBtn"
+            hidden
+          >
+            + Add Session
+          </button>
+
+        </div>
+
+
+        <ol
+          class="sessions-list"
+          id="sessionsList"
+        ></ol>
+
+      </section>
+
+
+      <!-- ====================================================
+           CERTIFICATE
+           ==================================================== -->
+
+      <section
+        class="certificate-settings panel"
+        id="certificateSection"
+      >
+
+        <div class="certificate-settings__header">
+
+          <div>
+
+            <span class="section-eyebrow">
+              Completion
+            </span>
+
+            <h2>
+              Certificate
+            </h2>
+
+          </div>
+
+          <span
+            class="status-badge status-badge--enabled"
+            id="certificateStatus"
+          >
+            Enabled
+          </span>
+
+        </div>
+
+        <p>
+          Attendance-based certificate. A student can receive the
+          certificate after completing the required workshop
+          attendance conditions.
+        </p>
+
+        <div class="certificate-settings__rule">
+
+          <div class="certificate-rule">
+
+            <strong>
+              Online
+            </strong>
+
+            <span>
+              Student completes the required session.
+            </span>
+
+          </div>
+
+          <div class="certificate-rule">
+
+            <strong>
+              Offline
+            </strong>
+
+            <span>
+              Admin marks the student as Present.
+            </span>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- ========================================================
+       ADD / EDIT SESSION MODAL
+       ======================================================== -->
+
+  <div
+    class="modal"
+    id="sessionModal"
+    hidden
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal__overlay"
+      data-close-session-modal
+    ></div>
+
+    <div
+      class="modal__content"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="sessionModalTitle"
+    >
+
+      <div class="modal__header">
+
+        <div>
+
+          <span class="section-eyebrow">
+            Workshop Session
+          </span>
+
+          <h2 id="sessionModalTitle">
+            Add Session
+          </h2>
+
+        </div>
+
+        <button
+          type="button"
+          class="modal__close"
+          id="closeSessionModalBtn"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <!-- Session Form -->
+
+      <form
+        id="sessionForm"
+        novalidate
+      >
+
+        <!-- Session Title -->
+
+        <div class="form-group">
+
+          <label for="sessionTitle">
+            Session Title
+          </label>
+
+          <input
+            type="text"
+            id="sessionTitle"
+            name="sessionTitle"
+            placeholder="Enter session title"
+            required
+          >
+
+        </div>
+
+
+        <!-- Description -->
+
+        <div class="form-group">
+
+          <label for="sessionDescription">
+            Session Description
+          </label>
+
+          <textarea
+            id="sessionDescription"
+            name="sessionDescription"
+            rows="4"
+            placeholder="Enter session description"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <!-- Date + Time -->
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="sessionDate">
+              Date
+            </label>
+
+            <input
+              type="date"
+              id="sessionDate"
+              name="sessionDate"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="sessionTime">
+              Time
+            </label>
+
+            <input
+              type="time"
+              id="sessionTime"
+              name="sessionTime"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- Mode -->
+
+        <div class="form-group">
+
+          <label for="sessionMode">
+            Mode
+          </label>
+
+          <select
+            id="sessionMode"
+            name="sessionMode"
+            required
+          >
+
+            <option value="In-person">
+              In-person
+            </option>
+
+            <option value="Online">
+              Online
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- Location / Online Link -->
+
+        <div class="form-group">
+
+          <label for="sessionLocation">
+            Location / Online Link
+          </label>
+
+          <input
+            type="text"
+            id="sessionLocation"
+            name="sessionLocation"
+            placeholder="Enter location or online link"
+            required
+          >
+
+        </div>
+
+
+        <!-- Materials -->
+
+        <div class="form-group">
+
+          <label for="sessionMaterials">
+            Materials
+          </label>
+
+          <input
+            type="text"
+            id="sessionMaterials"
+            name="sessionMaterials"
+            placeholder="Materials link (optional)"
+          >
+
+        </div>
+
+
+        <!-- Form Actions -->
+
+        <div class="modal__actions">
+
+          <button
+            type="button"
+            class="action-btn action-btn--secondary"
+            id="cancelSessionBtn"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="action-btn"
+          >
+            Save Session
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- ========================================================
+       EDIT WORKSHOP MODAL
+       ======================================================== -->
+
+  <div
+    class="modal"
+    id="workshopModal"
+    hidden
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal__overlay"
+      data-close-workshop-modal
+    ></div>
+
+    <div
+      class="modal__content"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="workshopModalTitle"
+    >
+
+      <div class="modal__header">
+
+        <div>
+
+          <span class="section-eyebrow">
+            Workshop
+          </span>
+
+          <h2 id="workshopModalTitle">
+            Edit Workshop
+          </h2>
+
+        </div>
+
+        <button
+          type="button"
+          class="modal__close"
+          id="closeWorkshopModalBtn"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form
+        id="workshopForm"
+        novalidate
+      >
+
+        <div class="form-group">
+
+          <label for="workshopName">
+            Workshop Title
+          </label>
+
+          <input
+            type="text"
+            id="workshopName"
+            name="workshopName"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="workshopFormDescription">
+            Description
+          </label>
+
+          <textarea
+            id="workshopFormDescription"
+            name="workshopFormDescription"
+            rows="5"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="workshopFormInstructor">
+            Instructor / Speaker
+          </label>
+
+          <input
+            type="text"
+            id="workshopFormInstructor"
+            name="workshopFormInstructor"
+            required
+          >
+
+        </div>
+
+
+        <div class="modal__actions">
+
+          <button
+            type="button"
+            class="action-btn action-btn--secondary"
+            id="cancelWorkshopBtn"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="action-btn"
+          >
+            Save Changes
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+
+  <footer>
+    <p>
+      © 2026 AICHE Cairo Student Chapter
+    </p>
+  </footer>
+
+
+  <!-- ========================================================
+       JAVASCRIPT
+       ======================================================== -->
+
+  <script src="../../js/global/main.js"></script>
+  <script src="../../js/global/navbar.js"></script>
+  <script src="../../js/global/admin-auth.js"></script>
+
+  <script src="../../js/pages/admin/workshop-management-details.js"></script>
+
+</body>
+</html>
