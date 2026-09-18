@@ -1,96 +1,139 @@
 <!doctype html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Workshops Management — AICHE Cairo</title>
+    <title>Courses & Workshops Management — AICHE Cairo</title>
 
-    <!-- ========================================================
-       GLOBAL CSS
-       ======================================================== -->
+    <!-- Global CSS -->
 
     <link rel="stylesheet" href="../../css/global/variables.css" />
+
     <link rel="stylesheet" href="../../css/global/reset.css" />
+
     <link rel="stylesheet" href="../../css/global/typography.css" />
 
-    <!-- ========================================================
-       SHARED COMPONENTS
-       ======================================================== -->
+    <!-- Shared Components -->
 
     <link rel="stylesheet" href="../../css/components/navbar.css" />
+
     <link rel="stylesheet" href="../../css/components/buttons.css" />
+
     <link rel="stylesheet" href="../../css/components/cards.css" />
+
     <link rel="stylesheet" href="../../css/components/admin-layout.css" />
 
-    <!-- ========================================================
-       PAGE CSS
-       ======================================================== -->
+    <!-- Page CSS -->
 
     <link
       rel="stylesheet"
-      href="../../css/pages/admin/workshops-management.css"
+      href="../../css/pages/admin/courses-workshops-management.css"
     />
   </head>
 
   <body>
-    <!-- ========================================================
-       NAVBAR
-       ======================================================== -->
+    <!-- Navbar -->
+
     <div id="navbar-container"></div>
 
-    <!-- ========================================================
-       DASHBOARD LAYOUT
-       ======================================================== -->
+    <!-- Main Content -->
 
-    <div class="dashboard-layout">
-      <!-- ======================================================
-         MANAGEMENT SIDEBAR
-         ====================================================== -->
+    <main class="dashboard">
+      <!-- ====================================================
 
-      <aside class="sidebar" id="managementNav">
-        <h4 class="sidebar__title">Management</h4>
+             PAGE HEADER
 
-        <ul class="sidebar__list" id="managementList"></ul>
-      </aside>
+             ==================================================== -->
 
-      <!-- ======================================================
-         MAIN CONTENT
-         ====================================================== -->
+      <section class="dashboard__header">
+        <span class="eyebrow">Manage Content</span>
 
-      <main class="dashboard">
-        <!-- ====================================================
-           PAGE HEADER
-           ==================================================== -->
+        <h1>Courses & Workshops</h1>
 
-        <section class="dashboard__header">
-          <span class="eyebrow"> Management </span>
+        <p>Create and manage courses and workshops for your committee.</p>
+      </section>
 
-          <div class="page-header">
-            <div>
-              <h1>Workshops</h1>
+      <!-- ====================================================
 
-              <p>Manage workshops and their sessions.</p>
-            </div>
+             COURSES SECTION
 
-            <!-- Add Workshop -->
+             ==================================================== -->
 
-            <button type="button" class="action-btn" id="addWorkshopBtn" hidden>
-              + Add Workshop
-            </button>
+      <section class="management-section courses-section">
+        <div class="page-header">
+          <div>
+            <span class="section-eyebrow">Course Management</span>
+
+            <h2>Courses</h2>
+
+            <p>Create and manage courses and their enrolled students.</p>
           </div>
+
+          <button type="button" class="action-btn" id="addCourseBtn" hidden>
+            + Add Course
+          </button>
+        </div>
+
+        <!-- Course Search -->
+
+        <div class="page-toolbar">
+          <input
+            type="text"
+            id="courseSearch"
+            placeholder="Search courses..."
+            aria-label="Search courses"
+          />
+        </div>
+
+        <!-- Courses Grid -->
+
+        <section class="courses-grid" id="coursesGrid">
+          <!-- Courses rendered by JS -->
         </section>
+      </section>
 
-        <!-- ====================================================
-           WORKSHOPS LIST
-           ==================================================== -->
+      <!-- ====================================================
 
-        <section class="workshops-section panel">
+             DIVIDER
+
+             ==================================================== -->
+
+      <div class="management-divider">
+        <span>Workshops</span>
+      </div>
+
+      <!-- ====================================================
+
+             WORKSHOPS SECTION
+
+             ==================================================== -->
+
+      <section class="management-section workshops-section">
+        <div class="page-header">
+          <div>
+            <span class="section-eyebrow">Workshop Management</span>
+
+            <h2>Workshops</h2>
+
+            <p>Manage workshops and their sessions.</p>
+          </div>
+
+          <button type="button" class="action-btn" id="addWorkshopBtn" hidden>
+            + Add Workshop
+          </button>
+        </div>
+
+        <!-- Workshops Panel -->
+
+        <div class="panel">
           <div class="section-header">
             <div>
               <span class="section-eyebrow"> Workshop Management </span>
 
-              <h2>All Workshops</h2>
+              <h3>All Workshops</h3>
             </div>
 
             <span class="workshop-count" id="workshopCount"> 0 Workshops </span>
@@ -111,7 +154,7 @@
               </thead>
 
               <tbody id="workshopsTableBody">
-                <!-- JS renders workshops here -->
+                <!-- Workshops rendered by JS -->
               </tbody>
             </table>
           </div>
@@ -123,13 +166,15 @@
 
             <p>There are currently no workshops to display.</p>
           </div>
-        </section>
-      </main>
-    </div>
+        </div>
+      </section>
+    </main>
 
     <!-- ========================================================
-       ADD / EDIT WORKSHOP MODAL
-       ======================================================== -->
+
+         ADD / EDIT WORKSHOP MODAL
+
+         ======================================================== -->
 
     <div class="modal" id="workshopModal" hidden aria-hidden="true">
       <div class="modal__overlay" data-close-workshop-modal></div>
@@ -221,21 +266,29 @@
       </div>
     </div>
 
-    <!-- ========================================================
-       FOOTER
-       ======================================================== -->
+    <!-- Footer -->
 
     <footer>
       <p>© 2026 AICHE Cairo Student Chapter</p>
     </footer>
 
     <!-- ========================================================
-       JAVASCRIPT
-       ======================================================== -->
+
+         JAVASCRIPT
+
+         ======================================================== -->
 
     <script src="../../js/global/main.js"></script>
+
     <script src="../../js/global/navbar.js"></script>
+
     <script src="../../js/global/admin-auth.js"></script>
+
+    <!-- Courses -->
+
+    <script src="../../js/pages/admin/courses-management.js"></script>
+
+    <!-- Workshops -->
 
     <script src="../../js/pages/admin/workshops-management.js"></script>
   </body>

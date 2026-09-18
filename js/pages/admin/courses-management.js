@@ -4,22 +4,12 @@
 // ============================================================
 
 const mockCourses = [
-  {
-    id: 1,
-    name: "Process Safety Foundations",
-    students: 32,
-    image: "https://loop-media.co/wp-content/uploads/2025/01/Complete-Guide-to-Web-Development-and-Design.jpg"
-  },
-  {
-    id: 2,
-    name: "Excel for Process Engineers",
-    students: 45,
-    image: "https://loop-media.co/wp-content/uploads/2025/01/Complete-Guide-to-Web-Development-and-Design.jpg"
-  }
+  { id: 1, name: "Process Safety Foundations", students: 32, image: "https://loop-media.co/wp-content/uploads/2025/01/Complete-Guide-to-Web-Development-and-Design.jpg" },
+  { id: 2, name: "Excel for Process Engineers", students: 45, image: "https://loop-media.co/wp-content/uploads/2025/01/Complete-Guide-to-Web-Development-and-Design.jpg" }
 ];
 
 function renderCourses(courses) {
-  const grid = document.getElementById('coursesGrid');
+  const grid = document.getElementById("coursesGrid");
   grid.innerHTML = courses.length
     ? courses.map(course => `
         <div class="course-card">
@@ -40,67 +30,55 @@ function renderCourses(courses) {
             </div>
           </div>
         </div>
-      `).join('')
-    : `<p>No courses found.</p>`;
+      `).join("")
+    : "<p>No courses found.</p>";
 
   attachMenuHandlers();
 }
 
 function attachMenuHandlers() {
-  document.querySelectorAll('[data-menu-toggle]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const id = btn.getAttribute('data-menu-toggle');
-      const dropdown = document.getElementById(`menu-${id}`);
-      document.querySelectorAll('.course-card__menu-dropdown.is-open').forEach(open => {
-        if (open !== dropdown) open.classList.remove('is-open');
+  document.querySelectorAll("[data-menu-toggle]").forEach(btn => {
+    btn.addEventListener("click", event => {
+      event.stopPropagation();
+      const dropdown = document.getElementById(`menu-${btn.getAttribute("data-menu-toggle")}`);
+      document.querySelectorAll(".course-card__menu-dropdown.is-open").forEach(open => {
+        if (open !== dropdown) open.classList.remove("is-open");
       });
-      dropdown.classList.toggle('is-open');
+      dropdown.classList.toggle("is-open");
     });
   });
 
-  document.addEventListener('click', () => {
-    document.querySelectorAll('.course-card__menu-dropdown.is-open').forEach(open => {
-      open.classList.remove('is-open');
-    });
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".course-card__menu-dropdown.is-open").forEach(open => open.classList.remove("is-open"));
   });
 
-  document.querySelectorAll('[data-edit]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      console.log(`Edit course ${btn.getAttribute('data-edit')} — form not built yet`);
-    });
+  document.querySelectorAll("[data-edit]").forEach(btn => {
+    btn.addEventListener("click", () => console.log(`Edit course ${btn.getAttribute("data-edit")} — form not built yet`));
   });
 
-  document.querySelectorAll('[data-delete]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      console.log(`Delete course ${btn.getAttribute('data-delete')} — confirmation + API not built yet`);
-    });
+  document.querySelectorAll("[data-delete]").forEach(btn => {
+    btn.addEventListener("click", () => console.log(`Delete course ${btn.getAttribute("data-delete")} — confirmation + API not built yet`));
   });
 }
 
 function renderAddCourseButton(user) {
-  const btn = document.getElementById('addCourseBtn');
-  btn.hidden = !can(user, 'add_course');
+  document.getElementById("addCourseBtn").hidden = !can(user, "add_course");
 }
 
 function setupCourseSearch() {
-  const input = document.getElementById('courseSearch');
-  input.addEventListener('input', () => {
+  const input = document.getElementById("courseSearch");
+  input.addEventListener("input", () => {
     const query = input.value.trim().toLowerCase();
-    const filtered = mockCourses.filter(course =>
-      course.name.toLowerCase().includes(query)
-    );
-    renderCourses(filtered);
+    renderCourses(mockCourses.filter(course => course.name.toLowerCase().includes(query)));
   });
 }
 
 function initPage() {
-  if (!requirePermission(currentUser, 'view_courses')) return;
+  if (!requirePermission(currentUser, "view_courses")) return;
 
-  renderManagementNav(currentUser);
   renderCourses(mockCourses);
   renderAddCourseButton(currentUser);
   setupCourseSearch();
 }
 
-document.addEventListener('DOMContentLoaded', initPage);
+document.addEventListener("DOMContentLoaded", initPage);

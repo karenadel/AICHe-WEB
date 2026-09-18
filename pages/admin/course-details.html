@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Course Details — AICHE Cairo</title>
-
   <link rel="stylesheet" href="../../css/global/variables.css">
   <link rel="stylesheet" href="../../css/global/reset.css">
   <link rel="stylesheet" href="../../css/global/typography.css">
@@ -15,81 +14,31 @@
   <link rel="stylesheet" href="../../css/pages/admin/course-details.css">
 </head>
 <body>
-
   <div id="navbar-container"></div>
-
-  <div class="dashboard-layout">
-
-    <aside class="sidebar" id="managementNav">
-      <h4 class="sidebar__title">Management</h4>
-      <ul class="sidebar__list" id="managementList"></ul>
-    </aside>
-
-    <main class="dashboard">
-
-      <a href="courses-management.html" class="back-link">← Back to Courses</a>
-
-      <section class="dashboard__header">
-        <span class="eyebrow">Course Details</span>
-        <h1 id="courseTitle">Loading course...</h1>
-        <p id="courseDescription"></p>
-      </section>
-
-      <!-- <section class="course-info panel">
-        <h2>Course Info</h2>
-        <div class="course-info__grid">
-          <div>
-            <span class="info-label">Students Enrolled</span>
-            <p id="courseStudents">—</p>
-          </div>
-        </div>
-      </section> -->
-
-            <section class="course-info panel">
-        <h2>Course Info</h2>
-        <div class="course-info__grid">
-          <div>
-            <span class="info-label">Instructor</span>
-            <p id="courseInstructor">—</p>
-          </div>
-          <div>
-            <span class="info-label">Level</span>
-            <p id="courseLevel">—</p>
-          </div>
-          <div>
-            <span class="info-label">Duration</span>
-            <p id="courseDuration">—</p>
-          </div>
-          <div>
-            <span class="info-label">Students Enrolled</span>
-            <p id="courseStudents">—</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="course-parts panel">
-        <div class="course-parts__header">
-          <h2>Course Parts</h2>
-          <button class="action-btn" id="addPartBtn" hidden>Add Part</button>
-        </div>
-        <p class="course-parts__note">
-          Parts are completed in sequence: Lecture → Task → Quiz → Final Exam.
-        </p>
-        <ol class="parts-list" id="partsList"></ol>
-      </section>
-
-      <section class="certificate-settings panel">
-        <h2>Certificate Settings</h2>
-        <p id="certificateStatus">—</p>
-      </section>
-
-    </main>
-  </div>
-
-  <footer>
-    <p>© 2026 AICHE Cairo Student Chapter</p>
-  </footer>
-
+  <main class="dashboard">
+    <a href="courses-workshops-management.html" class="back-link">← Back to Courses</a>
+    <section class="dashboard__header">
+      <span class="eyebrow">Course Details</span>
+      <h1 id="courseTitle">Loading course...</h1>
+      <p id="courseDescription"></p>
+    </section>
+    <section class="course-info panel">
+      <h2>Course Info</h2>
+      <div class="course-info__grid">
+        <div><span class="info-label">Instructor</span><p id="courseInstructor">—</p></div>
+        <div><span class="info-label">Level</span><p id="courseLevel">—</p></div>
+        <div><span class="info-label">Duration</span><p id="courseDuration">—</p></div>
+        <div><span class="info-label">Students Enrolled</span><p id="courseStudents">—</p></div>
+      </div>
+    </section>
+    <section class="course-parts panel">
+      <div class="course-parts__header"><h2>Course Parts</h2><button class="action-btn" id="addPartBtn" hidden>Add Part</button></div>
+      <p class="course-parts__note">Parts are completed in sequence: Lecture → Task → Quiz → Final Exam.</p>
+      <ol class="parts-list" id="partsList"></ol>
+    </section>
+    <section class="certificate-settings panel"><h2>Certificate Settings</h2><p id="certificateStatus">—</p></section>
+  </main>
+  <footer><p>© 2026 AICHE Cairo Student Chapter</p></footer>
   <script src="../../js/global/main.js"></script>
   <script src="../../js/global/navbar.js"></script>
   <script src="../../js/global/admin-auth.js"></script>

@@ -1,62 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard — AICHE Cairo</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link rel="stylesheet" href="../../css/global/variables.css">
-  <link rel="stylesheet" href="../../css/global/reset.css">
-  <link rel="stylesheet" href="../../css/global/typography.css">
-  <link rel="stylesheet" href="../../css/components/navbar.css">
-  <link rel="stylesheet" href="../../css/components/buttons.css">
-  <link rel="stylesheet" href="../../css/components/cards.css">
-  <link rel="stylesheet" href="../../css/components/admin-layout.css">
-  <link rel="stylesheet" href="../../css/pages/admin/dashboard.css">
+  <title>Admin Dashboard — AIChE Cairo</title>
+
+  <!-- Global styles -->
+  <link
+    rel="stylesheet"
+    href="../../css/global/variables.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../../css/global/reset.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../../css/global/typography.css"
+  >
+
+  <!-- Components -->
+  <link
+    rel="stylesheet"
+    href="../../css/components/navbar.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../../css/components/buttons.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../../css/components/cards.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../../css/components/admin-layout.css"
+  >
+
+  <!-- Page -->
+  <link
+    rel="stylesheet"
+    href="../../css/pages/admin/dashboard.css"
+  >
 </head>
+
+
 <body>
 
-<div id="navbar-container"></div>
+  <!-- ======================================================
+       NAVBAR
+       ====================================================== -->
 
-  <div class="dashboard-layout">
+  <div id="navbar-container"></div>
 
-    <aside class="sidebar" id="managementNav">
-      <h4 class="sidebar__title">Management</h4>
-      <ul class="sidebar__list" id="managementList"></ul>
-    </aside>
 
-    <main class="dashboard">
+  <!-- ======================================================
+       DASHBOARD
+       ====================================================== -->
 
-      <section class="dashboard__header welcome">
-        <span class="eyebrow" id="dashboardEyebrow">Committee Operations</span>
-        <h1 id="dashboardTitle">Admin Dashboard</h1>
-        <p>Overview of AICHE activities, users, and content.</p>
-      </section>
+  <main class="dashboard">
 
-      <section class="dashboard__stats" id="statsGrid"></section>
+    <!-- ====================================================
+         WELCOME HEADER
+         ==================================================== -->
 
-      <section class="dashboard__actions">
-        <h3>Quick Actions</h3>
-        <div class="actions-row" id="quickActions"></div>
-      </section>
+    <section class="dashboard__header welcome">
 
-      <section class="dashboard__panels">
-        <div class="panel">
-          <h2>Recent Activity</h2>
-          <div class="activity-list" id="activityList"></div>
+      <div class="welcome__content">
+
+        <span
+          class="eyebrow"
+          id="dashboardEyebrow"
+        >
+          Upper Management
+        </span>
+
+        <h1 id="dashboardTitle">
+          Admin Dashboard
+        </h1>
+
+        <p id="dashboardDescription">
+          Overview of AIChE activities, users, and content.
+        </p>
+
+      </div>
+
+      <div class="welcome__user">
+
+        <span class="welcome__role-label">
+          Logged in as
+        </span>
+
+        <strong id="dashboardRole">
+          President
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================================
+         OVERVIEW
+         ==================================================== -->
+
+    <section class="dashboard__section">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="eyebrow">
+            Overview
+          </span>
+
+          <h2>
+            Chapter Statistics
+          </h2>
         </div>
-      </section>
 
-    </main>
-  </div>
+      </div>
+
+
+      <div
+        class="dashboard__stats"
+        id="statsGrid"
+      ></div>
+
+    </section>
+
+
+    <!-- ====================================================
+         QUICK ACTIONS
+         ==================================================== -->
+
+    <section class="dashboard__section dashboard__actions">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="eyebrow">
+            Actions
+          </span>
+
+          <h2>
+            Quick Actions
+          </h2>
+        </div>
+
+      </div>
+
+
+      <div
+        class="actions-grid"
+        id="quickActions"
+      ></div>
+
+    </section>
+
+
+    <!-- ====================================================
+         RECENT ACTIVITY
+         ==================================================== -->
+
+    <section class="dashboard__section dashboard__activity">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="eyebrow">
+            Activity
+          </span>
+
+          <h2>
+            Recent Activity
+          </h2>
+        </div>
+
+      </div>
+
+
+      <div
+        class="activity-list"
+        id="activityList"
+      ></div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ======================================================
+       FOOTER
+       ====================================================== -->
 
   <footer>
-    <p>© 2026 AICHE Cairo Student Chapter</p>
+    <p>
+      © 2026 AIChE Cairo Student Chapter
+    </p>
   </footer>
 
+
+  <!-- ======================================================
+       JAVASCRIPT
+       ====================================================== -->
+
   <script src="../../js/global/main.js"></script>
+
   <script src="../../js/global/navbar.js"></script>
+
   <script src="../../js/global/admin-auth.js"></script>
+
   <script src="../../js/pages/admin/dashboard.js"></script>
+
 </body>
 </html>

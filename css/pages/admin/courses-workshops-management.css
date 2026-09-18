@@ -1,16 +1,32 @@
+
 /* ============================================================
-   WORKSHOPS MANAGEMENT
-   Page-specific styles only.
+   COURSES & WORKSHOPS MANAGEMENT
+   Page-specific styles.
    Layout shell comes from admin-layout.css.
    ============================================================ */
 
 
 /* ============================================================
-   GENERAL
+   GENERAL SECTIONS
    ============================================================ */
 
-.panel {
-  margin-top: var(--space-md);
+/* Replaces the outer spacing formerly supplied by .dashboard-layout. */
+.dashboard {
+  width: calc(100% - (var(--space-lg) * 2));
+  max-width: 1440px;
+  margin: var(--space-lg) auto;
+}
+
+.management-section {
+  width: 100%;
+}
+
+.courses-section {
+  margin-top: var(--space-lg);
+}
+
+.workshops-section {
+  margin-top: var(--space-lg);
 }
 
 
@@ -20,13 +36,9 @@
 
 .page-header {
   display: flex;
-
   justify-content: space-between;
-
   align-items: flex-start;
-
   gap: 24px;
-
   margin-top: 8px;
 }
 
@@ -34,14 +46,253 @@
   min-width: 0;
 }
 
+.page-header h2 {
+  margin: 0;
+}
+
 .page-header p {
   margin-top: 6px;
-
   color: var(--color-text-muted);
-
   font-size: 13px;
-
   line-height: 1.5;
+}
+
+
+/* ============================================================
+   SECTION EYEBROW
+   ============================================================ */
+
+.section-eyebrow {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+
+/* ============================================================
+   DIVIDER BETWEEN COURSES & WORKSHOPS
+   ============================================================ */
+
+.management-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 48px 0 32px;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.management-divider::before,
+.management-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.management-divider span {
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   COURSE TOOLBAR
+   ============================================================ */
+
+.page-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.page-toolbar input {
+  flex: 1;
+  min-width: 200px;
+  max-width: 320px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background-color: var(--color-white);
+}
+
+.page-toolbar input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+
+/* ============================================================
+   COURSES GRID
+   ============================================================ */
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+
+/* ============================================================
+   COURSE CARD
+   ============================================================ */
+
+.course-card {
+  position: relative;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-4px) translateX(4px);
+  box-shadow: -4px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ============================================================
+   COURSE IMAGE
+   ============================================================ */
+
+.course-card__image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  background-color: var(--color-bg);
+}
+
+
+/* ============================================================
+   COURSE BODY
+   ============================================================ */
+
+.course-card__body {
+  padding: 16px;
+}
+
+.course-card__name {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.course-card__students {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0 0 14px 0;
+}
+
+
+/* ============================================================
+   COURSE FOOTER
+   ============================================================ */
+
+.course-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.course-card__view {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.course-card__view:hover {
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   COURSE KEBAB MENU
+   ============================================================ */
+
+.course-card__menu {
+  position: relative;
+}
+
+.course-card__menu-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.course-card__menu-btn:hover {
+  background-color: var(--color-bg);
+}
+
+.course-card__menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  margin-bottom: 6px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 140px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.course-card__menu-dropdown.is-open {
+  display: block;
+}
+
+.course-card__menu-dropdown a,
+.course-card__menu-dropdown button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.course-card__menu-dropdown a:hover,
+.course-card__menu-dropdown button:hover {
+  background-color: var(--color-bg);
+}
+
+.course-card__menu-dropdown button.danger {
+  color: #a65b4a;
+}
+
+
+/* ============================================================
+   WORKSHOP PANEL
+   ============================================================ */
+
+.panel {
+  margin-top: var(--space-md);
 }
 
 
@@ -51,92 +302,57 @@
 
 .section-header {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   gap: 16px;
-
   margin-bottom: 18px;
 }
 
-.section-eyebrow {
-  display: block;
-
-  margin-bottom: 4px;
-
-  font-size: 11px;
-
-  font-weight: 700;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.06em;
-
-  color: var(--color-text-muted);
+.section-header h3 {
+  margin: 0;
 }
 
 .workshop-count {
   font-size: 12px;
-
   color: var(--color-text-muted);
-
   white-space: nowrap;
 }
 
 
 /* ============================================================
-   TABLE
+   WORKSHOP TABLE
    ============================================================ */
 
 .table-wrapper {
   width: 100%;
-
   overflow-x: auto;
-
   border: 1px solid var(--color-border);
-
   border-radius: 9px;
 }
 
 .management-table {
   width: 100%;
-
   border-collapse: collapse;
-
   min-width: 650px;
 }
 
 .management-table th {
   padding: 13px 16px;
-
   text-align: left;
-
   font-size: 11px;
-
   font-weight: 700;
-
   text-transform: uppercase;
-
   letter-spacing: 0.04em;
-
   color: var(--color-text-muted);
-
   background: var(--color-surface);
-
   border-bottom: 1px solid var(--color-border);
 }
 
 .management-table td {
   padding: 15px 16px;
-
   font-size: 13px;
-
   color: var(--color-text);
-
   border-bottom: 1px solid var(--color-border);
-
   vertical-align: middle;
 }
 
@@ -155,19 +371,14 @@
 
 .workshop-name {
   font-weight: 700;
-
   color: var(--color-text);
 }
 
 .workshop-name__description {
   margin-top: 4px;
-
   font-size: 12px;
-
   color: var(--color-text-muted);
-
   max-width: 500px;
-
   line-height: 1.4;
 }
 
@@ -178,60 +389,43 @@
 
 .session-count {
   font-weight: 600;
-
   color: var(--color-text);
 }
 
 
 /* ============================================================
-   ACTIONS
+   WORKSHOP ACTIONS
    ============================================================ */
 
 .workshop-actions {
   display: flex;
-
   align-items: center;
-
   gap: 7px;
-
   flex-wrap: wrap;
 }
 
 .table-action {
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   padding: 7px 10px;
-
   border-radius: 6px;
-
   border: 1px solid var(--color-border);
-
   background: transparent;
-
   color: var(--color-text);
-
   font-size: 11px;
-
   font-weight: 600;
-
   cursor: pointer;
-
   text-decoration: none;
 }
 
 .table-action:hover {
   border-color: var(--color-primary);
-
   color: var(--color-primary);
 }
 
 .table-action--delete:hover {
   border-color: #c94a4a;
-
   color: #c94a4a;
 }
 
@@ -242,27 +436,20 @@
 
 .empty-state {
   text-align: center;
-
   padding: 48px 20px;
-
   border: 1px dashed var(--color-border);
-
   border-radius: 9px;
-
   margin-top: 16px;
 }
 
 .empty-state h3 {
   margin-bottom: 6px;
-
   font-size: 15px;
 }
 
 .empty-state p {
   color: var(--color-text-muted);
-
   font-size: 13px;
-
   margin: 0;
 }
 
@@ -273,17 +460,11 @@
 
 .modal {
   position: fixed;
-
   inset: 0;
-
   z-index: 1000;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   padding: 20px;
 }
 
@@ -293,33 +474,21 @@
 
 .modal__overlay {
   position: absolute;
-
   inset: 0;
-
   background: rgba(0, 0, 0, 0.35);
 }
 
 .modal__content {
   position: relative;
-
   z-index: 1;
-
   width: min(560px, 100%);
-
   max-height: calc(100vh - 40px);
-
   overflow-y: auto;
-
-  background: #fff;;
-
+  background: var(--color-white);
   border: 1px solid var(--color-border);
-
   border-radius: 12px;
-
   padding: 24px;
-
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
 
 
@@ -329,13 +498,9 @@
 
 .modal__header {
   display: flex;
-
   justify-content: space-between;
-
   align-items: flex-start;
-
   gap: 16px;
-
   margin-bottom: 22px;
 }
 
@@ -345,27 +510,18 @@
 
 .modal__close {
   width: 32px;
-
   height: 32px;
-
   border: 1px solid var(--color-border);
-
   background: transparent;
-
   color: var(--color-text-muted);
-
   border-radius: 6px;
-
   font-size: 20px;
-
   line-height: 1;
-
   cursor: pointer;
 }
 
 .modal__close:hover {
   color: var(--color-text);
-
   border-color: var(--color-primary);
 }
 
@@ -380,36 +536,23 @@
 
 .form-group label {
   display: block;
-
   margin-bottom: 6px;
-
   font-size: 12px;
-
   font-weight: 600;
-
   color: var(--color-text);
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-
   box-sizing: border-box;
-
   border: 1px solid var(--color-border);
-
   background: var(--color-surface);
-
   color: var(--color-text);
-
   border-radius: 7px;
-
   padding: 10px 11px;
-
   font: inherit;
-
   font-size: 13px;
-
   outline: none;
 }
 
@@ -420,7 +563,6 @@
 
 .form-group textarea {
   resize: vertical;
-
   min-height: 110px;
 }
 
@@ -431,15 +573,10 @@
 
 .modal__actions {
   display: flex;
-
   justify-content: flex-end;
-
   gap: 8px;
-
   margin-top: 24px;
-
   padding-top: 16px;
-
   border-top: 1px solid var(--color-border);
 }
 
@@ -450,21 +587,13 @@
 
 .action-btn {
   border: 1px solid var(--color-primary);
-
   background: var(--color-primary);
-
   color: #fff;
-
   border-radius: 7px;
-
   padding: 9px 14px;
-
   font-size: 12px;
-
   font-weight: 600;
-
   cursor: pointer;
-
   transition:
     opacity 0.15s ease,
     transform 0.15s ease;
@@ -480,21 +609,31 @@
 
 .action-btn--secondary {
   background: transparent;
-
   color: var(--color-text);
-
   border-color: var(--color-border);
 }
 
 .action-btn--secondary:hover {
   border-color: var(--color-primary);
-
   color: var(--color-primary);
 }
 
 
 /* ============================================================
-   MOBILE
+   RESPONSIVE — COURSES
+   ============================================================ */
+
+@media (max-width: 1000px) {
+
+  .courses-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE
    ============================================================ */
 
 @media (max-width: 700px) {
@@ -509,8 +648,29 @@
 
   .section-header {
     align-items: flex-start;
-
     flex-direction: column;
+  }
+
+  .management-divider {
+    margin: 40px 0 28px;
+  }
+
+}
+
+
+@media (max-width: 560px) {
+
+  .page-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-toolbar input {
+    max-width: none;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
   }
 
 }
@@ -536,7 +696,6 @@
 
   .workshop-actions {
     flex-direction: column;
-
     align-items: stretch;
   }
 

@@ -1,23 +1,34 @@
 // ============================================================
+
 // WORKSHOP MANAGEMENT DETAILS
+
 //
+
 // Frontend-only implementation.
+
 //
+
 // IMPORTANT:
+
 // The data below is MOCK DATA.
+
 // Backend/API integration will replace the mock operations.
+
 //
+
 // Required shared file:
+
 // ../../js/global/admin-auth.js
-// ============================================================
-
 
 // ============================================================
+
+// ============================================================
+
 // MOCK DATA
+
 // ============================================================
 
 const mockWorkshopsById = {
-
   1: {
     id: 1,
 
@@ -26,229 +37,163 @@ const mockWorkshopsById = {
     description:
       "Build the skills to guide a team through ambiguity and change.",
 
-    instructor:
-      "Eng. Sara Adel",
+    instructor: "Eng. Sara Adel",
 
     sessions: [
-
       {
         id: 101,
 
-        title:
-          "Foundations of Leadership",
+        title: "Foundations of Leadership",
 
-        description:
-          "Core leadership styles and when to use them.",
+        description: "Core leadership styles and when to use them.",
 
-        date:
-          "2026-09-22",
+        date: "2026-09-22",
 
-        time:
-          "18:00",
+        time: "18:00",
 
-        mode:
-          "In-person",
+        mode: "In-person",
 
-        location:
-          "AICHE Cairo HQ",
+        location: "AICHE Cairo HQ",
 
-        materials:
-          ""
+        materials: "",
       },
 
       {
         id: 102,
 
-        title:
-          "Leading Under Pressure",
+        title: "Leading Under Pressure",
 
-        description:
-          "Decision-making in high-stakes moments.",
+        description: "Decision-making in high-stakes moments.",
 
-        date:
-          "2026-09-29",
+        date: "2026-09-29",
 
-        time:
-          "18:00",
+        time: "18:00",
 
-        mode:
-          "Online",
+        mode: "Online",
 
-        location:
-          "Zoom",
+        location: "Zoom",
 
-        materials:
-          ""
-      }
-
+        materials: "",
+      },
     ],
 
-    certificateEnabled:
-      true
+    certificateEnabled: true,
   },
-
 
   2: {
     id: 2,
 
-    name:
-      "Communication",
+    name: "Communication",
 
     description:
       "Turn a technical answer into a story a mixed room can follow.",
 
-    instructor:
-      "Eng. Omar Nabil",
+    instructor: "Eng. Omar Nabil",
 
     sessions: [
-
       {
         id: 201,
 
-        title:
-          "Technical Presentation Studio",
+        title: "Technical Presentation Studio",
 
-        description:
-          "Structuring a talk for a non-technical audience.",
+        description: "Structuring a talk for a non-technical audience.",
 
-        date:
-          "2026-10-05",
+        date: "2026-10-05",
 
-        time:
-          "17:00",
+        time: "17:00",
 
-        mode:
-          "In-person",
+        mode: "In-person",
 
-        location:
-          "AICHE Cairo HQ",
+        location: "AICHE Cairo HQ",
 
-        materials:
-          ""
-      }
-
+        materials: "",
+      },
     ],
 
-    certificateEnabled:
-      true
+    certificateEnabled: true,
   },
-
 
   3: {
     id: 3,
 
-    name:
-      "Technical Presentation Studio",
+    name: "Technical Presentation Studio",
 
-    description:
-      "Peer studio for refining technical talks.",
+    description: "Peer studio for refining technical talks.",
 
-    instructor:
-      "Eng. Nour El-Sayed",
+    instructor: "Eng. Nour El-Sayed",
 
     sessions: [
-
       {
         id: 301,
 
-        title:
-          "Session 1: Draft & Feedback",
+        title: "Session 1: Draft & Feedback",
 
-        description:
-          "Bring a draft, get peer feedback.",
+        description: "Bring a draft, get peer feedback.",
 
-        date:
-          "2026-10-12",
+        date: "2026-10-12",
 
-        time:
-          "17:00",
+        time: "17:00",
 
-        mode:
-          "In-person",
+        mode: "In-person",
 
-        location:
-          "AICHE Cairo HQ",
+        location: "AICHE Cairo HQ",
 
-        materials:
-          ""
+        materials: "",
       },
 
       {
         id: 302,
 
-        title:
-          "Session 2: Final Run-through",
+        title: "Session 2: Final Run-through",
 
-        description:
-          "Full run-through before showcase.",
+        description: "Full run-through before showcase.",
 
-        date:
-          "2026-10-19",
+        date: "2026-10-19",
 
-        time:
-          "17:00",
+        time: "17:00",
 
-        mode:
-          "Online",
+        mode: "Online",
 
-        location:
-          "Zoom",
+        location: "Zoom",
 
-        materials:
-          ""
-      }
-
+        materials: "",
+      },
     ],
 
-    certificateEnabled:
-      true
-  }
-
+    certificateEnabled: true,
+  },
 };
 
-
 // ============================================================
+
 // URL / WORKSHOP HELPERS
+
 // ============================================================
 
 function getWorkshopIdFromUrl() {
+  const params = new URLSearchParams(window.location.search);
 
-  const params =
-    new URLSearchParams(
-      window.location.search
-    );
-
-  return Number(
-    params.get("id")
-  );
+  return Number(params.get("id"));
 }
-
 
 function getCurrentWorkshop() {
+  const workshopId = getWorkshopIdFromUrl();
 
-  const workshopId =
-    getWorkshopIdFromUrl();
-
-  return mockWorkshopsById[
-    workshopId
-  ];
+  return mockWorkshopsById[workshopId];
 }
 
-
 // ============================================================
+
 // FORMATTERS
+
 // ============================================================
 
 function formatDate(dateString) {
-
   if (!dateString) {
     return "—";
   }
 
-  const date =
-    new Date(
-      `${dateString}T00:00:00`
-    );
+  const date = new Date(`${dateString}T00:00:00`);
 
   if (Number.isNaN(date.getTime())) {
     return dateString;
@@ -256,126 +201,97 @@ function formatDate(dateString) {
 
   return new Intl.DateTimeFormat(
     "en-GB",
+
     {
       day: "2-digit",
+
       month: "short",
-      year: "numeric"
-    }
+
+      year: "numeric",
+    },
   ).format(date);
 }
 
-
 function formatTime(timeString) {
-
   if (!timeString) {
     return "—";
   }
 
-  const parts =
-    timeString.split(":");
+  const parts = timeString.split(":");
 
   if (parts.length < 2) {
     return timeString;
   }
 
-  const hours =
-    Number(parts[0]);
+  const hours = Number(parts[0]);
 
-  const minutes =
-    parts[1];
+  const minutes = parts[1];
 
-  if (
-    Number.isNaN(hours)
-  ) {
+  if (Number.isNaN(hours)) {
     return timeString;
   }
 
-  const suffix =
-    hours >= 12
-      ? "PM"
-      : "AM";
+  const suffix = hours >= 12 ? "PM" : "AM";
 
-  const displayHour =
-    hours % 12 || 12;
+  const displayHour = hours % 12 || 12;
 
   return `${displayHour}:${minutes} ${suffix}`;
 }
 
-
 // ============================================================
+
 // WORKSHOP INFO
+
 // ============================================================
 
 function renderWorkshopInfo(workshop) {
+  const title = document.getElementById("workshopTitle");
 
-  const title =
-    document.getElementById(
-      "workshopTitle"
-    );
+  const description = document.getElementById("workshopDescription");
 
-  const description =
-    document.getElementById(
-      "workshopDescription"
-    );
+  const instructor = document.getElementById("workshopInstructor");
 
-  const instructor =
-    document.getElementById(
-      "workshopInstructor"
-    );
-
-  const sessionCount =
-    document.getElementById(
-      "workshopSessionCount"
-    );
-
+  const sessionCount = document.getElementById("workshopSessionCount");
 
   if (title) {
-    title.textContent =
-      workshop.name;
+    title.textContent = workshop.name;
   }
 
   if (description) {
-    description.textContent =
-      workshop.description;
+    description.textContent = workshop.description;
   }
 
   if (instructor) {
-    instructor.textContent =
-      workshop.instructor;
+    instructor.textContent = workshop.instructor;
   }
 
   if (sessionCount) {
-    sessionCount.textContent =
-      workshop.sessions.length;
+    sessionCount.textContent = workshop.sessions.length;
   }
 }
 
-
 // ============================================================
+
 // SESSIONS
+
 // ============================================================
 
 function renderSessions(sessions) {
-
-  const list =
-    document.getElementById(
-      "sessionsList"
-    );
+  const list = document.getElementById("sessionsList");
 
   if (!list) {
     return;
   }
 
-
-  if (
-    !sessions ||
-    sessions.length === 0
-  ) {
-
+  if (!sessions || sessions.length === 0) {
     list.innerHTML = `
+
       <li class="session-item session-item--empty">
+
         <p>No sessions added yet.</p>
+
       </li>
+
     `;
 
     updateSessionCount(0);
@@ -383,1531 +299,1220 @@ function renderSessions(sessions) {
     return;
   }
 
+  list.innerHTML = sessions
 
-  list.innerHTML =
-    sessions
-      .map(
-        (session, index) => {
+    .map((session, index) => {
+      return `
 
-          return `
             <li
+
               class="session-item"
+
               data-session-id="${session.id}"
+
             >
+
+
 
               <div class="session-item__content">
 
+
+
                 <p class="session-item__title">
+
                   ${escapeHtml(session.title)}
+
                 </p>
 
+
+
                 <p class="session-item__description">
+
                   ${escapeHtml(session.description)}
+
                 </p>
+
+
 
                 <p class="session-item__meta">
 
-                  <span>
-                    ${formatDate(session.date)}
-                  </span>
+
 
                   <span>
-                    ${formatTime(session.time)}
+
+                    ${formatDate(session.date)}
+
                   </span>
+
+
+
+                  <span>
+
+                    ${formatTime(session.time)}
+
+                  </span>
+
+
 
                   <span class="session-item__mode">
+
                     ${escapeHtml(session.mode)}
+
                   </span>
+
+
 
                   <span>
+
                     ${escapeHtml(session.location)}
+
                   </span>
 
+
+
                 </p>
+
+
 
                 ${
                   session.materials
                     ? `
+
                       <p class="session-item__materials">
+
+
 
                         Materials:
 
+
+
                         <a
+
                           href="${escapeHtml(session.materials)}"
+
                           target="_blank"
+
                           rel="noopener noreferrer"
+
                         >
+
                           View Materials
+
                         </a>
 
+
+
                       </p>
+
                     `
                     : ""
                 }
 
+
+
               </div>
+
+
+
 
 
               <div class="session-item__actions">
 
+
+
                 ${
                   can(
                     currentUser,
-                    "edit_workshop_session"
+
+                    "edit_workshop_session",
                   )
                     ? `
+
                       <button
+
                         type="button"
+
                         class="session-action-btn"
+
                         data-action="edit-session"
+
                         data-session-id="${session.id}"
+
                       >
+
                         Edit
+
                       </button>
+
                     `
                     : ""
                 }
+
+
+
 
 
                 ${
                   can(
                     currentUser,
-                    "delete_workshop_session"
+
+                    "delete_workshop_session",
                   )
                     ? `
+
                       <button
+
                         type="button"
+
                         class="session-action-btn session-action-btn--delete"
+
                         data-action="delete-session"
+
                         data-session-id="${session.id}"
+
                       >
+
                         Delete
+
                       </button>
+
                     `
                     : ""
                 }
+
+
 
               </div>
 
+
+
             </li>
+
           `;
-        }
-      )
-      .join("");
+    })
 
+    .join("");
 
-  updateSessionCount(
-    sessions.length
-  );
+  updateSessionCount(sessions.length);
 }
 
-
 function updateSessionCount(count) {
-
-  const element =
-    document.getElementById(
-      "workshopSessionCount"
-    );
+  const element = document.getElementById("workshopSessionCount");
 
   if (element) {
-    element.textContent =
-      count;
+    element.textContent = count;
   }
 }
 
-
 // ============================================================
+
 // PERMISSIONS / BUTTONS
+
 // ============================================================
 
 function renderWorkshopActions(user) {
+  const editButton = document.getElementById("editWorkshopBtn");
 
-  const editButton =
-    document.getElementById(
-      "editWorkshopBtn"
-    );
-
-  const deleteButton =
-    document.getElementById(
-      "deleteWorkshopBtn"
-    );
-
+  const deleteButton = document.getElementById("deleteWorkshopBtn");
 
   if (editButton) {
+    editButton.hidden = !can(
+      user,
 
-    editButton.hidden =
-      !can(
-        user,
-        "edit_workshop"
-      );
-
+      "edit_workshop",
+    );
   }
 
-
   if (deleteButton) {
+    deleteButton.hidden = !can(
+      user,
 
-    deleteButton.hidden =
-      !can(
-        user,
-        "delete_workshop"
-      );
-
+      "delete_workshop",
+    );
   }
 }
 
-
 function renderAddSessionButton(user) {
-
-  const button =
-    document.getElementById(
-      "addSessionBtn"
-    );
+  const button = document.getElementById("addSessionBtn");
 
   if (!button) {
     return;
   }
 
-  button.hidden =
-    !can(
-      user,
-      "add_workshop_session"
-    );
+  button.hidden = !can(
+    user,
+
+    "add_workshop_session",
+  );
 }
 
-
 // ============================================================
+
 // CERTIFICATE
+
 // ============================================================
 
 function renderCertificateSection(workshop) {
+  const section = document.getElementById("certificateSection");
 
-  const section =
-    document.getElementById(
-      "certificateSection"
-    );
-
-  const status =
-    document.getElementById(
-      "certificateStatus"
-    );
-
+  const status = document.getElementById("certificateStatus");
 
   if (!section) {
     return;
   }
 
-
-  if (
-    workshop.certificateEnabled
-  ) {
-
+  if (workshop.certificateEnabled) {
     section.hidden = false;
 
     if (status) {
-      status.textContent =
-        "Enabled";
+      status.textContent = "Enabled";
     }
-
   } else {
-
     section.hidden = false;
 
     if (status) {
-      status.textContent =
-        "Disabled";
+      status.textContent = "Disabled";
     }
-
   }
 }
 
-
 // ============================================================
+
 // SESSION MODAL
+
 // ============================================================
 
-function openSessionModal(
-  session = null
-) {
+function openSessionModal(session = null) {
+  const modal = document.getElementById("sessionModal");
 
-  const modal =
-    document.getElementById(
-      "sessionModal"
-    );
+  const modalTitle = document.getElementById("sessionModalTitle");
 
-  const modalTitle =
-    document.getElementById(
-      "sessionModalTitle"
-    );
-
-  const form =
-    document.getElementById(
-      "sessionForm"
-    );
-
+  const form = document.getElementById("sessionForm");
 
   if (!modal || !form) {
     return;
   }
 
-
   if (session) {
+    modalTitle.textContent = "Edit Session";
 
-    modalTitle.textContent =
-      "Edit Session";
-
-    form.dataset.sessionId =
-      String(session.id);
-
+    form.dataset.sessionId = String(session.id);
   } else {
+    modalTitle.textContent = "Add Session";
 
-    modalTitle.textContent =
-      "Add Session";
-
-    form.dataset.sessionId =
-      "";
-
+    form.dataset.sessionId = "";
   }
-
 
   setFormValue(
     "sessionTitle",
-    session?.title || ""
+
+    session?.title || "",
   );
 
   setFormValue(
     "sessionDescription",
-    session?.description || ""
+
+    session?.description || "",
   );
 
   setFormValue(
     "sessionDate",
-    session?.date || ""
+
+    session?.date || "",
   );
 
   setFormValue(
     "sessionTime",
-    session?.time || ""
+
+    session?.time || "",
   );
 
   setFormValue(
     "sessionMode",
-    session?.mode || "In-person"
+
+    session?.mode || "In-person",
   );
 
   setFormValue(
     "sessionLocation",
-    session?.location || ""
+
+    session?.location || "",
   );
 
   setFormValue(
     "sessionMaterials",
-    session?.materials || ""
-  );
 
+    session?.materials || "",
+  );
 
   modal.hidden = false;
 
   modal.setAttribute(
     "aria-hidden",
-    "false"
+
+    "false",
   );
 
+  document.body.classList.add("modal-open");
 
-  document.body.classList.add(
-    "modal-open"
-  );
-
-
-  const firstInput =
-    document.getElementById(
-      "sessionTitle"
-    );
+  const firstInput = document.getElementById("sessionTitle");
 
   if (firstInput) {
     firstInput.focus();
   }
 }
 
-
 function closeSessionModal() {
+  const modal = document.getElementById("sessionModal");
 
-  const modal =
-    document.getElementById(
-      "sessionModal"
-    );
-
-  const form =
-    document.getElementById(
-      "sessionForm"
-    );
-
+  const form = document.getElementById("sessionForm");
 
   if (!modal) {
     return;
   }
-
 
   modal.hidden = true;
 
   modal.setAttribute(
     "aria-hidden",
-    "true"
-  );
 
+    "true",
+  );
 
   if (form) {
     form.reset();
 
-    form.dataset.sessionId =
-      "";
+    form.dataset.sessionId = "";
   }
 
-
-  document.body.classList.remove(
-    "modal-open"
-  );
+  document.body.classList.remove("modal-open");
 }
 
-
 // ============================================================
+
 // WORKSHOP MODAL
+
 // ============================================================
 
-function openWorkshopModal(
-  workshop
-) {
-
-  const modal =
-    document.getElementById(
-      "workshopModal"
-    );
+function openWorkshopModal(workshop) {
+  const modal = document.getElementById("workshopModal");
 
   if (!modal) {
     return;
   }
 
-
   setFormValue(
     "workshopName",
-    workshop.name
+
+    workshop.name,
   );
 
   setFormValue(
     "workshopFormDescription",
-    workshop.description
+
+    workshop.description,
   );
 
   setFormValue(
     "workshopFormInstructor",
-    workshop.instructor
-  );
 
+    workshop.instructor,
+  );
 
   modal.hidden = false;
 
   modal.setAttribute(
     "aria-hidden",
-    "false"
+
+    "false",
   );
 
+  document.body.classList.add("modal-open");
 
-  document.body.classList.add(
-    "modal-open"
-  );
-
-
-  const firstInput =
-    document.getElementById(
-      "workshopName"
-    );
+  const firstInput = document.getElementById("workshopName");
 
   if (firstInput) {
     firstInput.focus();
   }
 }
 
-
 function closeWorkshopModal() {
+  const modal = document.getElementById("workshopModal");
 
-  const modal =
-    document.getElementById(
-      "workshopModal"
-    );
-
-  const form =
-    document.getElementById(
-      "workshopForm"
-    );
-
+  const form = document.getElementById("workshopForm");
 
   if (!modal) {
     return;
   }
 
-
   modal.hidden = true;
 
   modal.setAttribute(
     "aria-hidden",
-    "true"
-  );
 
+    "true",
+  );
 
   if (form) {
     form.reset();
   }
 
-
-  document.body.classList.remove(
-    "modal-open"
-  );
+  document.body.classList.remove("modal-open");
 }
 
-
 // ============================================================
+
 // FORM HELPERS
+
 // ============================================================
 
 function setFormValue(
   id,
-  value
-) {
 
-  const element =
-    document.getElementById(id);
+  value,
+) {
+  const element = document.getElementById(id);
 
   if (element) {
-    element.value =
-      value;
+    element.value = value;
   }
 }
 
-
 function getFormValue(id) {
+  const element = document.getElementById(id);
 
-  const element =
-    document.getElementById(id);
-
-  return element
-    ? element.value.trim()
-    : "";
+  return element ? element.value.trim() : "";
 }
 
-
 // ============================================================
+
 // SESSION FORM
+
 // ============================================================
 
-function handleSessionSubmit(
-  event
-) {
-
+function handleSessionSubmit(event) {
   event.preventDefault();
 
+  const form = event.currentTarget;
 
-  const form =
-    event.currentTarget;
-
-  const workshop =
-    getCurrentWorkshop();
-
+  const workshop = getCurrentWorkshop();
 
   if (!workshop) {
     return;
   }
 
-
-  const sessionId =
-    form.dataset.sessionId;
-
+  const sessionId = form.dataset.sessionId;
 
   const sessionData = {
+    title: getFormValue("sessionTitle"),
 
-    title:
-      getFormValue(
-        "sessionTitle"
-      ),
+    description: getFormValue("sessionDescription"),
 
-    description:
-      getFormValue(
-        "sessionDescription"
-      ),
+    date: getFormValue("sessionDate"),
 
-    date:
-      getFormValue(
-        "sessionDate"
-      ),
+    time: getFormValue("sessionTime"),
 
-    time:
-      getFormValue(
-        "sessionTime"
-      ),
+    mode: getFormValue("sessionMode"),
 
-    mode:
-      getFormValue(
-        "sessionMode"
-      ),
+    location: getFormValue("sessionLocation"),
 
-    location:
-      getFormValue(
-        "sessionLocation"
-      ),
-
-    materials:
-      getFormValue(
-        "sessionMaterials"
-      )
-
+    materials: getFormValue("sessionMaterials"),
   };
 
-
   // ----------------------------------------------------------
+
   // Validation
+
   // ----------------------------------------------------------
 
   if (!sessionData.title) {
-
-    alert(
-      "Please enter the session title."
-    );
+    alert("Please enter the session title.");
 
     return;
   }
-
 
   if (!sessionData.description) {
-
-    alert(
-      "Please enter the session description."
-    );
+    alert("Please enter the session description.");
 
     return;
   }
-
 
   if (!sessionData.date) {
-
-    alert(
-      "Please select the session date."
-    );
+    alert("Please select the session date.");
 
     return;
   }
-
 
   if (!sessionData.time) {
-
-    alert(
-      "Please select the session time."
-    );
+    alert("Please select the session time.");
 
     return;
   }
-
 
   if (!sessionData.mode) {
-
-    alert(
-      "Please select the session mode."
-    );
+    alert("Please select the session mode.");
 
     return;
   }
-
 
   if (!sessionData.location) {
-
-    alert(
-      "Please enter the location or online link."
-    );
+    alert("Please enter the location or online link.");
 
     return;
   }
 
-
   // ----------------------------------------------------------
+
   // EDIT
+
   // ----------------------------------------------------------
 
   if (sessionId) {
-
     if (
       !can(
         currentUser,
-        "edit_workshop_session"
+
+        "edit_workshop_session",
       )
     ) {
-
-      alert(
-        "You don't have permission to edit sessions."
-      );
+      alert("You don't have permission to edit sessions.");
 
       return;
     }
 
-
-    const session =
-      workshop.sessions.find(
-        item =>
-          String(item.id) ===
-          String(sessionId)
-      );
-
+    const session = workshop.sessions.find(
+      (item) => String(item.id) === String(sessionId),
+    );
 
     if (!session) {
-
-      alert(
-        "Session not found."
-      );
+      alert("Session not found.");
 
       return;
     }
-
 
     Object.assign(
       session,
-      sessionData
+
+      sessionData,
     );
 
-
-    alert(
-      "Session updated successfully."
-    );
-
+    alert("Session updated successfully.");
   }
 
-
   // ----------------------------------------------------------
+
   // ADD
+
   // ----------------------------------------------------------
-
   else {
-
     if (
       !can(
         currentUser,
-        "add_workshop_session"
+
+        "add_workshop_session",
       )
     ) {
-
-      alert(
-        "You don't have permission to add sessions."
-      );
+      alert("You don't have permission to add sessions.");
 
       return;
     }
 
-
     const newSession = {
+      id: Date.now(),
 
-      id:
-        Date.now(),
-
-      ...sessionData
-
+      ...sessionData,
     };
 
+    workshop.sessions.push(newSession);
 
-    workshop.sessions.push(
-      newSession
-    );
-
-
-    alert(
-      "Session added successfully."
-    );
+    alert("Session added successfully.");
   }
 
-
-  renderSessions(
-    workshop.sessions
-  );
+  renderSessions(workshop.sessions);
 
   closeSessionModal();
 }
 
-
 // ============================================================
+
 // EDIT SESSION
+
 // ============================================================
 
-function editSession(
-  sessionId
-) {
-
-  const workshop =
-    getCurrentWorkshop();
-
+function editSession(sessionId) {
+  const workshop = getCurrentWorkshop();
 
   if (!workshop) {
     return;
   }
 
-
   if (
     !can(
       currentUser,
-      "edit_workshop_session"
+
+      "edit_workshop_session",
     )
   ) {
-
-    alert(
-      "You don't have permission to edit sessions."
-    );
+    alert("You don't have permission to edit sessions.");
 
     return;
   }
 
-
-  const session =
-    workshop.sessions.find(
-      item =>
-        String(item.id) ===
-        String(sessionId)
-    );
-
+  const session = workshop.sessions.find(
+    (item) => String(item.id) === String(sessionId),
+  );
 
   if (!session) {
-
-    alert(
-      "Session not found."
-    );
+    alert("Session not found.");
 
     return;
   }
 
-
-  openSessionModal(
-    session
-  );
+  openSessionModal(session);
 }
 
-
 // ============================================================
+
 // DELETE SESSION
+
 // ============================================================
 
-function deleteSession(
-  sessionId
-) {
-
-  const workshop =
-    getCurrentWorkshop();
-
+function deleteSession(sessionId) {
+  const workshop = getCurrentWorkshop();
 
   if (!workshop) {
     return;
   }
 
-
   if (
     !can(
       currentUser,
-      "delete_workshop_session"
+
+      "delete_workshop_session",
     )
   ) {
-
-    alert(
-      "You don't have permission to delete sessions."
-    );
+    alert("You don't have permission to delete sessions.");
 
     return;
   }
 
-
-  const session =
-    workshop.sessions.find(
-      item =>
-        String(item.id) ===
-        String(sessionId)
-    );
-
+  const session = workshop.sessions.find(
+    (item) => String(item.id) === String(sessionId),
+  );
 
   if (!session) {
-
-    alert(
-      "Session not found."
-    );
+    alert("Session not found.");
 
     return;
   }
 
-
-  const confirmed =
-    confirm(
-      `Are you sure you want to delete "${session.title}"?`
-    );
-
+  const confirmed = confirm(
+    `Are you sure you want to delete "${session.title}"?`,
+  );
 
   if (!confirmed) {
     return;
   }
 
-
-  workshop.sessions =
-    workshop.sessions.filter(
-      item =>
-        String(item.id) !==
-        String(sessionId)
-    );
-
-
-  renderSessions(
-    workshop.sessions
+  workshop.sessions = workshop.sessions.filter(
+    (item) => String(item.id) !== String(sessionId),
   );
 
+  renderSessions(workshop.sessions);
 
-  alert(
-    "Session deleted successfully."
-  );
+  alert("Session deleted successfully.");
 }
 
-
 // ============================================================
+
 // EDIT WORKSHOP
+
 // ============================================================
 
 function editWorkshop() {
-
-  const workshop =
-    getCurrentWorkshop();
-
+  const workshop = getCurrentWorkshop();
 
   if (!workshop) {
     return;
   }
 
-
   if (
     !can(
       currentUser,
-      "edit_workshop"
+
+      "edit_workshop",
     )
   ) {
-
-    alert(
-      "You don't have permission to edit this workshop."
-    );
+    alert("You don't have permission to edit this workshop.");
 
     return;
   }
 
-
-  openWorkshopModal(
-    workshop
-  );
+  openWorkshopModal(workshop);
 }
 
-
 // ============================================================
+
 // WORKSHOP FORM
+
 // ============================================================
 
-function handleWorkshopSubmit(
-  event
-) {
-
+function handleWorkshopSubmit(event) {
   event.preventDefault();
 
-
-  const workshop =
-    getCurrentWorkshop();
-
+  const workshop = getCurrentWorkshop();
 
   if (!workshop) {
     return;
   }
 
-
   if (
     !can(
       currentUser,
-      "edit_workshop"
+
+      "edit_workshop",
     )
   ) {
-
-    alert(
-      "You don't have permission to edit this workshop."
-    );
+    alert("You don't have permission to edit this workshop.");
 
     return;
   }
 
+  const name = getFormValue("workshopName");
 
-  const name =
-    getFormValue(
-      "workshopName"
-    );
+  const description = getFormValue("workshopFormDescription");
 
-  const description =
-    getFormValue(
-      "workshopFormDescription"
-    );
-
-  const instructor =
-    getFormValue(
-      "workshopFormInstructor"
-    );
-
+  const instructor = getFormValue("workshopFormInstructor");
 
   if (!name) {
-
-    alert(
-      "Please enter the workshop title."
-    );
+    alert("Please enter the workshop title.");
 
     return;
   }
-
 
   if (!description) {
-
-    alert(
-      "Please enter the workshop description."
-    );
+    alert("Please enter the workshop description.");
 
     return;
   }
-
 
   if (!instructor) {
-
-    alert(
-      "Please enter the instructor or speaker."
-    );
+    alert("Please enter the instructor or speaker.");
 
     return;
   }
 
+  workshop.name = name;
 
-  workshop.name =
-    name;
+  workshop.description = description;
 
-  workshop.description =
-    description;
+  workshop.instructor = instructor;
 
-  workshop.instructor =
-    instructor;
-
-
-  renderWorkshopInfo(
-    workshop
-  );
-
+  renderWorkshopInfo(workshop);
 
   closeWorkshopModal();
 
-
-  alert(
-    "Workshop updated successfully."
-  );
+  alert("Workshop updated successfully.");
 }
 
-
 // ============================================================
+
 // DELETE WORKSHOP
+
 // ============================================================
 
 function deleteWorkshop() {
-
-  const workshop =
-    getCurrentWorkshop();
-
+  const workshop = getCurrentWorkshop();
 
   if (!workshop) {
     return;
   }
 
-
   if (
     !can(
       currentUser,
-      "delete_workshop"
+
+      "delete_workshop",
     )
   ) {
-
-    alert(
-      "You don't have permission to delete this workshop."
-    );
+    alert("You don't have permission to delete this workshop.");
 
     return;
   }
 
-
-  const confirmed =
-    confirm(
-      `Are you sure you want to delete "${workshop.name}"?`
-    );
-
+  const confirmed = confirm(
+    `Are you sure you want to delete "${workshop.name}"?`,
+  );
 
   if (!confirmed) {
     return;
   }
 
-
   /*
+
     BACKEND TODO:
+
+
 
     DELETE /api/workshops/{id}
 
+
+
     After successful backend response:
+
     window.location.href =
+
       "workshops-management.html";
+
   */
 
+  alert("Workshop deleted successfully (mock).");
 
-  alert(
-    "Workshop deleted successfully (mock)."
-  );
-
-
-  window.location.href =
-    "workshops-management.html";
+  window.location.href = "workshops-management.html";
 }
 
-
 // ============================================================
+
 // SESSION ACTIONS
+
 // ============================================================
 
-function handleSessionActions(
-  event
-) {
-
-  const button =
-    event.target.closest(
-      "[data-action]"
-    );
-
+function handleSessionActions(event) {
+  const button = event.target.closest("[data-action]");
 
   if (!button) {
     return;
   }
 
+  const action = button.dataset.action;
 
-  const action =
-    button.dataset.action;
-
-  const sessionId =
-    button.dataset.sessionId;
-
+  const sessionId = button.dataset.sessionId;
 
   if (!sessionId) {
     return;
   }
 
-
-  if (
-    action ===
-    "edit-session"
-  ) {
-
-    editSession(
-      sessionId
-    );
-
+  if (action === "edit-session") {
+    editSession(sessionId);
   }
 
-
-  if (
-    action ===
-    "delete-session"
-  ) {
-
-    deleteSession(
-      sessionId
-    );
-
+  if (action === "delete-session") {
+    deleteSession(sessionId);
   }
 }
 
-
 // ============================================================
+
 // MODAL EVENTS
+
 // ============================================================
 
 function setupModalEvents() {
-
   // ----------------------------------------------------------
+
   // Session Form
+
   // ----------------------------------------------------------
 
-  const sessionForm =
-    document.getElementById(
-      "sessionForm"
-    );
+  const sessionForm = document.getElementById("sessionForm");
 
   if (sessionForm) {
-
     sessionForm.addEventListener(
       "submit",
-      handleSessionSubmit
-    );
 
+      handleSessionSubmit,
+    );
   }
 
-
   // ----------------------------------------------------------
+
   // Workshop Form
+
   // ----------------------------------------------------------
 
-  const workshopForm =
-    document.getElementById(
-      "workshopForm"
-    );
+  const workshopForm = document.getElementById("workshopForm");
 
   if (workshopForm) {
-
     workshopForm.addEventListener(
       "submit",
-      handleWorkshopSubmit
-    );
 
+      handleWorkshopSubmit,
+    );
   }
 
-
   // ----------------------------------------------------------
+
   // Close Session Modal
+
   // ----------------------------------------------------------
 
-  const closeSessionButton =
-    document.getElementById(
-      "closeSessionModalBtn"
-    );
+  const closeSessionButton = document.getElementById("closeSessionModalBtn");
 
   if (closeSessionButton) {
-
     closeSessionButton.addEventListener(
       "click",
-      closeSessionModal
-    );
 
+      closeSessionModal,
+    );
   }
 
-
-  const cancelSessionButton =
-    document.getElementById(
-      "cancelSessionBtn"
-    );
+  const cancelSessionButton = document.getElementById("cancelSessionBtn");
 
   if (cancelSessionButton) {
-
     cancelSessionButton.addEventListener(
       "click",
-      closeSessionModal
-    );
 
+      closeSessionModal,
+    );
   }
 
-
   // ----------------------------------------------------------
+
   // Close Workshop Modal
+
   // ----------------------------------------------------------
 
-  const closeWorkshopButton =
-    document.getElementById(
-      "closeWorkshopModalBtn"
-    );
+  const closeWorkshopButton = document.getElementById("closeWorkshopModalBtn");
 
   if (closeWorkshopButton) {
-
     closeWorkshopButton.addEventListener(
       "click",
-      closeWorkshopModal
-    );
 
+      closeWorkshopModal,
+    );
   }
 
-
-  const cancelWorkshopButton =
-    document.getElementById(
-      "cancelWorkshopBtn"
-    );
+  const cancelWorkshopButton = document.getElementById("cancelWorkshopBtn");
 
   if (cancelWorkshopButton) {
-
     cancelWorkshopButton.addEventListener(
       "click",
-      closeWorkshopModal
-    );
 
+      closeWorkshopModal,
+    );
   }
 
-
   // ----------------------------------------------------------
+
   // Overlay close
+
   // ----------------------------------------------------------
 
   document.addEventListener(
     "click",
-    event => {
 
-      if (
-        event.target.matches(
-          "[data-close-session-modal]"
-        )
-      ) {
-
+    (event) => {
+      if (event.target.matches("[data-close-session-modal]")) {
         closeSessionModal();
-
       }
 
-
-      if (
-        event.target.matches(
-          "[data-close-workshop-modal]"
-        )
-      ) {
-
+      if (event.target.matches("[data-close-workshop-modal]")) {
         closeWorkshopModal();
-
       }
-
-    }
+    },
   );
 
-
   // ----------------------------------------------------------
+
   // Escape key
+
   // ----------------------------------------------------------
 
   document.addEventListener(
     "keydown",
-    event => {
 
-      if (
-        event.key !== "Escape"
-      ) {
+    (event) => {
+      if (event.key !== "Escape") {
         return;
       }
-
 
       closeSessionModal();
 
       closeWorkshopModal();
-
-    }
+    },
   );
 }
 
-
 // ============================================================
+
 // BUTTON EVENTS
+
 // ============================================================
 
 function setupButtonEvents() {
-
   // ----------------------------------------------------------
+
   // Add Session
+
   // ----------------------------------------------------------
 
-  const addSessionButton =
-    document.getElementById(
-      "addSessionBtn"
-    );
+  const addSessionButton = document.getElementById("addSessionBtn");
 
   if (addSessionButton) {
-
     addSessionButton.addEventListener(
       "click",
-      () => {
 
+      () => {
         if (
           !can(
             currentUser,
-            "add_workshop_session"
+
+            "add_workshop_session",
           )
         ) {
-
-          alert(
-            "You don't have permission to add sessions."
-          );
+          alert("You don't have permission to add sessions.");
 
           return;
         }
 
-
         openSessionModal();
-
-      }
+      },
     );
-
   }
 
-
   // ----------------------------------------------------------
+
   // Edit Workshop
+
   // ----------------------------------------------------------
 
-  const editWorkshopButton =
-    document.getElementById(
-      "editWorkshopBtn"
-    );
+  const editWorkshopButton = document.getElementById("editWorkshopBtn");
 
   if (editWorkshopButton) {
-
     editWorkshopButton.addEventListener(
       "click",
-      editWorkshop
-    );
 
+      editWorkshop,
+    );
   }
 
-
   // ----------------------------------------------------------
+
   // Delete Workshop
+
   // ----------------------------------------------------------
 
-  const deleteWorkshopButton =
-    document.getElementById(
-      "deleteWorkshopBtn"
-    );
+  const deleteWorkshopButton = document.getElementById("deleteWorkshopBtn");
 
   if (deleteWorkshopButton) {
-
     deleteWorkshopButton.addEventListener(
       "click",
-      deleteWorkshop
-    );
 
+      deleteWorkshop,
+    );
   }
 
-
   // ----------------------------------------------------------
+
   // Session actions
+
   // ----------------------------------------------------------
 
-  const sessionsList =
-    document.getElementById(
-      "sessionsList"
-    );
+  const sessionsList = document.getElementById("sessionsList");
 
   if (sessionsList) {
-
     sessionsList.addEventListener(
       "click",
-      handleSessionActions
+
+      handleSessionActions,
     );
-
   }
-
 }
 
-
 // ============================================================
+
 // HTML ESCAPE
+
 // Prevents mock/user content from being inserted as HTML.
+
 // ============================================================
 
 function escapeHtml(value) {
-
   return String(value)
     .replaceAll("&", "&amp;")
+
     .replaceAll("<", "&lt;")
+
     .replaceAll(">", "&gt;")
+
     .replaceAll('"', "&quot;")
+
     .replaceAll("'", "&#039;");
 }
 
-
 // ============================================================
+
 // INIT
+
 // ============================================================
 
 function initPage() {
-
   // ----------------------------------------------------------
+
   // Page Access
+
   // ----------------------------------------------------------
 
   if (
     !requirePermission(
       currentUser,
-      "view_workshops"
+
+      "view_workshops",
     )
   ) {
-
     return;
   }
 
-
   // ----------------------------------------------------------
+
   // Get Workshop
+
   // ----------------------------------------------------------
 
-  const workshop =
-    getCurrentWorkshop();
-
+  const workshop = getCurrentWorkshop();
 
   if (!workshop) {
+    const title = document.getElementById("workshopTitle");
 
-    const title =
-      document.getElementById(
-        "workshopTitle"
-      );
-
-    const description =
-      document.getElementById(
-        "workshopDescription"
-      );
-
+    const description = document.getElementById("workshopDescription");
 
     if (title) {
-
-      title.textContent =
-        "Workshop not found";
-
+      title.textContent = "Workshop not found";
     }
-
 
     if (description) {
-
-      description.textContent =
-        "The requested workshop could not be found.";
-
+      description.textContent = "The requested workshop could not be found.";
     }
-
 
     return;
   }
 
-
   // ----------------------------------------------------------
+
   // Sidebar
-  // ----------------------------------------------------------
-
-  renderManagementNav(
-    currentUser
-  );
-
 
   // ----------------------------------------------------------
+
+  // ----------------------------------------------------------
+
   // Content
-  // ----------------------------------------------------------
-
-  renderWorkshopInfo(
-    workshop
-  );
-
-  renderSessions(
-    workshop.sessions
-  );
-
-  renderWorkshopActions(
-    currentUser
-  );
-
-  renderAddSessionButton(
-    currentUser
-  );
-
-  renderCertificateSection(
-    workshop
-  );
-
 
   // ----------------------------------------------------------
+
+  renderWorkshopInfo(workshop);
+
+  renderSessions(workshop.sessions);
+
+  renderWorkshopActions(currentUser);
+
+  renderAddSessionButton(currentUser);
+
+  renderCertificateSection(workshop);
+
+  // ----------------------------------------------------------
+
   // Events
+
   // ----------------------------------------------------------
 
   setupModalEvents();
@@ -1915,12 +1520,14 @@ function initPage() {
   setupButtonEvents();
 }
 
-
 // ============================================================
+
 // DOM READY
+
 // ============================================================
 
 document.addEventListener(
   "DOMContentLoaded",
-  initPage
+
+  initPage,
 );
