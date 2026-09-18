@@ -506,7 +506,7 @@
 
   overflow-y: auto;
 
-  background: var(--color-surface);
+   background: #fff;;
 
   border: 1px solid var(--color-border);
 
