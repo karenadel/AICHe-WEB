@@ -36,6 +36,10 @@ const currentUser = {
   permissions: {}
 };
 
+// Expose the mock session for page modules; replace this with the
+// authenticated API session when the backend is connected.
+window.currentUser = currentUser;
+
 
 // ------------------------------------------------------------
 // Option 2: Committee Admin

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Points — AIChE Cairo</title>
+    <link rel="stylesheet" href="../../css/global/variables.css" />
+    <link rel="stylesheet" href="../../css/global/reset.css" />
+    <link rel="stylesheet" href="../../css/global/typography.css" />
+    <link rel="stylesheet" href="../../css/components/navbar.css" />
+    <link rel="stylesheet" href="../../css/components/admin-layout.css" />
+    <link rel="stylesheet" href="../../css/pages/admin/member-progress.css" />
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+    <a href="dashboard.html" class="back-link">←Back to Dashboard</a>
+    <main class="dashboard-layout">
+      <aside class="sidebar">
+        <div class="sidebar__title">Management</div>
+        <nav class="sidebar__list">
+          <a href="member-progress.html">Member Progress</a
+          ><a href="attendance.html">Attendance</a
+          ><a href="points.html">Points</a>
+        </nav>
+      </aside>
+      <section class="dashboard">
+        <header class="dashboard__header">
+          <span class="eyebrow">Scoring</span>
+          <h1>Points</h1>
+          <p>
+            Transparent provisional defaults. Adjust category values here; all
+            awards remain visible in point history.
+          </p>
+        </header>
+        <section class="panel">
+          <h2>Point categories and defaults</h2>
+          <form id="rulesForm" class="rules-grid"></form>
+          <button class="action-btn" type="submit" form="rulesForm">
+            Save point settings
+          </button>
+          <h2>Record points</h2>
+          <form id="awardForm" class="toolbar award-form">
+            <label
+              >Member
+              <select id="awardMember"></select></label
+            ><label
+              >Category
+              <select id="awardCategory"></select></label
+            ><label
+              >Points
+              <input id="awardValue" type="number" step="1" required /></label
+            ><label
+              >Description
+              <input
+                id="awardReason"
+                maxlength="120"
+                required
+                placeholder="e.g. submitted task on time" /></label
+            ><button class="action-btn">Add entry</button>
+          </form>
+          <div id="pointsTotals"></div>
+        </section>
+      </section>
+    </main>
+    <script src="../../js/global/navbar.js"></script>
+    <script src="../../js/global/admin-auth.js"></script>
+    <script src="../../js/pages/admin/points.js"></script>
+  </body>
+</html>
