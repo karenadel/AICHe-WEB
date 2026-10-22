@@ -78,14 +78,11 @@
         </div>
 
         <!-- Course Search -->
-
         <div class="page-toolbar">
-          <input
-            type="text"
-            id="courseSearch"
-            placeholder="Search courses..."
-            aria-label="Search courses"
-          />
+          <label class="search-field">
+            <span class="search-field__icon" aria-hidden="true">⌕</span>
+            <input type="search" id="courseSearch" placeholder="Search courses..." aria-label="Search courses" />
+          </label>
         </div>
 
         <!-- Courses Grid -->
@@ -126,49 +123,46 @@
           </button>
         </div>
 
-        <!-- Workshops Panel -->
+        <!-- Workshop Search and Cards -->
+        <div class="page-toolbar">
+          <label class="search-field">
+            <span class="search-field__icon" aria-hidden="true">⌕</span>
+            <input type="search" id="workshopSearch" placeholder="Search workshops..." aria-label="Search workshops" />
+          </label>
+          <span class="workshop-count" id="workshopCount">0 Workshops</span>
+        </div>
 
-        <div class="panel">
-          <div class="section-header">
-            <div>
-              <span class="section-eyebrow"> Workshop Management </span>
-
-              <h3>All Workshops</h3>
-            </div>
-
-            <span class="workshop-count" id="workshopCount"> 0 Workshops </span>
-          </div>
-
-          <!-- Workshop Table -->
-
-          <div class="table-wrapper">
-            <table class="management-table">
-              <thead>
-                <tr>
-                  <th>Workshop Name</th>
-
-                  <th>Number of Sessions</th>
-
-                  <th>Actions</th>
-                </tr>
-              </thead>
-
-              <tbody id="workshopsTableBody">
-                <!-- Workshops rendered by JS -->
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Empty State -->
-
-          <div class="empty-state" id="emptyState" hidden>
-            <h3>No workshops found</h3>
-
-            <p>There are currently no workshops to display.</p>
-          </div>
+        <section class="courses-grid workshops-grid" id="workshopsGrid" aria-live="polite">
+          <!-- Workshop cards rendered by JS -->
+        </section>
+        <div class="empty-state" id="emptyState" hidden>
+          <h3>No workshops found</h3>
+          <p>Try a different search, or add a workshop.</p>
         </div>
       </section>
     </main>
+
+    <!-- ADD / EDIT COURSE MODAL -->
+    <div class="modal" id="courseModal" hidden aria-hidden="true">
+      <div class="modal__overlay" data-close-course-modal></div>
+      <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="courseModalTitle">
+        <div class="modal__header">
+          <div><span class="section-eyebrow">Course</span><h2 id="courseModalTitle">Add Course</h2></div>
+          <button type="button" class="modal__close" id="closeCourseModalBtn" aria-label="Close">×</button>
+        </div>
+        <form id="courseForm">
+          <div class="form-group"><label for="courseName">Course Title</label><input id="courseName" name="courseName" required placeholder="Enter course title" /></div>
+          <div class="form-group"><label for="courseDescription">Short Description</label><textarea id="courseDescription" name="courseDescription" rows="4" required placeholder="Describe what students will learn"></textarea></div>
+          <div class="form-group"><label for="courseInstructor">Instructor</label><input id="courseInstructor" name="courseInstructor" required placeholder="Enter instructor name" /></div>
+          <div class="form-row">
+            <div class="form-group"><label for="courseLevel">Level</label><select id="courseLevel" name="courseLevel"><option>Beginner</option><option>Intermediate</option><option>Advanced</option><option>All levels</option></select></div>
+            <div class="form-group"><label for="courseDuration">Duration</label><input id="courseDuration" name="courseDuration" placeholder="e.g. 6 weeks" /></div>
+          </div>
+          <div class="form-group"><label for="courseImage">Image URL (optional)</label><input id="courseImage" name="courseImage" type="url" placeholder="https://..." /></div>
+          <div class="modal__actions"><button type="button" class="action-btn action-btn--secondary" id="cancelCourseBtn">Cancel</button><button type="submit" class="action-btn">Save Course</button></div>
+        </form>
+      </div>
+    </div>
 
     <!-- ========================================================
 
@@ -235,8 +229,12 @@
             ></textarea>
           </div>
 
-          <!-- Instructor -->
+          <div class="form-group">
+            <label for="workshopImage">Image URL (optional)</label>
+            <input type="url" id="workshopImage" name="workshopImage" placeholder="https://..." />
+          </div>
 
+          <!-- Instructor -->
           <div class="form-group">
             <label for="workshopInstructor"> Instructor / Speaker </label>
 

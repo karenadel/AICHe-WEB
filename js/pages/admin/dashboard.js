@@ -110,13 +110,13 @@ const quickActionsConfig = [
   {
     key: "add_course",
     label: "Add Course",
-    href: "courses-management.html"
+    href: "courses-workshops-management.html"
   },
 
   {
     key: "add_workshop",
     label: "Add Workshop",
-    href: "workshops-management.html"
+    href: "courses-workshops-management.html"
   },
 
   {
