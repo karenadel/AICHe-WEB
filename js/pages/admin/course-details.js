@@ -40,7 +40,11 @@ function renderAddPartButton(user) { document.getElementById("addPartBtn").hidde
 
 function initPage() {
   if (!requirePermission(currentUser, "view_courses")) return;
-  const course = mockCoursesById[getCourseIdFromUrl()];
+  const courseId = getCourseIdFromUrl();
+  let savedCourses = [];
+  try { savedCourses = JSON.parse(localStorage.getItem("aiche.courses.v1") || "[]"); } catch (error) { console.warn("Could not load saved courses", error); }
+  const savedCourse = savedCourses.find(item => Number(item.id) === courseId);
+  const course = savedCourse ? { ...(mockCoursesById[courseId] || { parts: [], certificateEnabled: false }), ...savedCourse, parts: mockCoursesById[courseId]?.parts || [] } : mockCoursesById[courseId];
   if (!course) {
     document.getElementById("courseTitle").textContent = "Course not found";
     document.getElementById("courseDescription").textContent = "";

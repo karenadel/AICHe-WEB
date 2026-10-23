@@ -567,3 +567,15 @@ footer {
   }
 
 }
+/* Member progress, attendance, and points dashboard destinations */
+.member-tools { padding:22px 24px 24px; border:1px solid #F3D4C3; border-left:5px solid #F15A0A; border-radius:12px; background:#FFF4E6; }
+.member-tools .section-heading { margin-bottom:14px; }
+.member-tools .eyebrow { color:#F15A0A; }
+.member-tools__links { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.member-tools__link { position:relative; display:grid; gap:6px; min-height:88px; padding:17px 42px 15px 17px; border:1px solid #E5E7EB; border-top:3px solid #F15A0A; border-radius:9px; background:#fff; color:#1F2937; text-decoration:none; transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease; }
+.member-tools__link:nth-child(2) { border-top-color:#FFC107; }
+.member-tools__link:hover { transform:translateY(-2px); border-color:#F15A0A; box-shadow:0 5px 14px rgba(31,41,55,.09); }
+.member-tools__label { font-weight:700; font-size:15px; }
+.member-tools__detail { color:#6B7280; font-size:13px; }
+.member-tools__arrow { position:absolute; top:50%; right:16px; color:#F15A0A; font-size:22px; transform:translateY(-50%); }
+@media(max-width:700px) { .member-tools__links { grid-template-columns:1fr; } }

@@ -1,3 +1,4 @@
+
 // ============================================================
 
 // WORKSHOP MANAGEMENT DETAILS
@@ -178,8 +179,17 @@ function getWorkshopIdFromUrl() {
 
 function getCurrentWorkshop() {
   const workshopId = getWorkshopIdFromUrl();
-
-  return mockWorkshopsById[workshopId];
+  let savedWorkshops = [];
+  try { savedWorkshops = JSON.parse(localStorage.getItem("aiche.workshops.v1") || "[]"); }
+  catch (error) { console.warn("Could not load saved workshops", error); }
+  const savedWorkshop = savedWorkshops.find(item => Number(item.id) === workshopId);
+  const existingWorkshop = mockWorkshopsById[workshopId];
+  if (!savedWorkshop) return existingWorkshop;
+  return {
+    ...(existingWorkshop || { sessions: [], certificateEnabled: true }),
+    ...savedWorkshop,
+    sessions: Array.isArray(existingWorkshop?.sessions) ? existingWorkshop.sessions : [],
+  };
 }
 
 // ============================================================

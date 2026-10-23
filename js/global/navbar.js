@@ -1,6 +1,6 @@
 const commonNavLinks = [
     { text: "Home", href: "#" },
-    { text: "Workshops & Courses", href: "#" },
+    { text: "Workshops & Courses", href: "pages/admin/courses-workshops-management.html" },
     { text: "Events & Site Visits", href: "#" },
     
 ];

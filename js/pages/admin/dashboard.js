@@ -374,6 +374,31 @@ function renderQuickActions(user) {
       .join("");
 }
 
+// Member progress, attendance, and points navigation.
+function renderMemberTools(user) {
+  const section = document.getElementById("memberTools");
+  const container = document.getElementById("memberToolsLinks");
+  if (!section || !container) return;
+
+  const links = [
+    { key: "view_member_progress", label: "Member Progress", detail: "Review sessions, tasks, and points", href: "member-progress.html" },
+    { key: "view_attendance", label: "Attendance", detail: "Record attendance for each session", href: "attendance.html" },
+    { key: "view_points", label: "Points", detail: "Review totals and scoring settings", href: "points.html" }
+  ].filter(item => can(user, item.key));
+
+  if (!links.length) {
+    section.hidden = true;
+    return;
+  }
+
+  container.innerHTML = links.map(item =>
+    '<a class="member-tools__link" href="' + item.href + '">' +
+    '<span class="member-tools__label">' + item.label + '</span>' +
+    '<span class="member-tools__detail">' + item.detail + '</span>' +
+    '<span class="member-tools__arrow" aria-hidden="true">→</span></a>'
+  ).join("");
+}
+
 
 // ============================================================
 // RENDER RECENT ACTIVITY
@@ -455,6 +480,9 @@ function initDashboard() {
 
   // Quick actions
   renderQuickActions(currentUser);
+
+  // Member management destinations
+  renderMemberTools(currentUser);
 
 
   // Recent activity
