@@ -48,7 +48,7 @@ const userNavLinksByRole = {
     ],
 
     student: [
-        { text: "Profile", href: "student-profile_final.html" },
+        { text: "Profile", href: "student_profile.html" },
         { text: "Logout", href: "#" }
     ],
 
