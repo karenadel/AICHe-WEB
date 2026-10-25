@@ -1,5 +1,18 @@
 /* AICHE brand system — based on the supplied Reference Colors.png */
 :root {
+  /* --color-bg: #FAF6EF;
+  --color-primary: #E8722C;
+  --color-dark: #1A1A1A;
+  --color-sage: #B4C4A8;
+  --color-white: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B6B6B;
+  --color-border: #E2DED4;
+  */
+
+    /* Shared status colors (already used on Student Home — reused here for consistency)*/
+  --color-completed: #E8EFE2;
+  --color-in-progress: #FCE4D6;
   --color-primary: #F15A0A;       /* AICHE Orange 500 */
   --color-primary-hover: #D84300; /* Orange 600 */
   --color-primary-soft: #FFF0E4;  /* Orange 50/100 blend */
@@ -35,6 +48,22 @@
   --color-workshops: #FFC107;
   --color-events: #0066CC;
   --color-sitevisits: #7C3AED;
+
+     --color-bg: #F3F4F6;
+    --color-primary: #F15A0A;
+    --color-yellow: #FFC107;
+    --color-medium-grey: #6B7280;
+    --color-white: #FFFFFF;
+    --color-text: #1F2937;
+    --color-text-muted: #6B6B6B;
+    --color-border: #E2DED4;
+  
+    --blue: #0066CC;
+    --teal: #009688;
+    --green: #22C55E;
+    --navy: #1E3A8A;
+    --purple: #7C3AED;
+    --line: #E2E5E9;
 
   --font-base: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --radius-sm: 6px;

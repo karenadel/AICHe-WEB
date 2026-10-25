@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Profile | AIChE Cairo University Chapter</title>
+    <link rel="stylesheet" href="../../css/global/variables.css">
+    <link rel="stylesheet" href="../../css/global/reset.css">
+    <link rel="stylesheet" href="../../css/global/typography.css">
+    <link rel="stylesheet" href="../../css/components/new_navbar.css">
+    <link rel="stylesheet" href="../../css/components/buttons.css">
+     <link rel="stylesheet" href="../../css/components/footer.css">
+    <link rel="stylesheet" href="../../css/pages/student/student_profile.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <div id="navbar-container" data-role="student"></div>
+  <script src="../../js/global/new_navbar.js"></script>
+<main class="student-profile">
+  <section class="panel personal-panel">
+    <header class="panel-header"><i class="fa-solid fa-user"></i><h2>Personal Details</h2></header>
+    <div class="personal-body">
+      <div class="student-photo-wrap"><img class="student-photo" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=240&q=85" alt="Student profile photo"></div>
+      <div class="personal-info">
+        <div class="info-row"><i class="fa-solid fa-user"></i><span>Name</span><strong>Sarah Ahmed</strong></div>
+        <div class="info-row"><i class="fa-solid fa-user"></i><span>Username</span><strong>sarah.ahmed</strong></div>
+        <div class="info-row"><i class="fa-solid fa-envelope"></i><span>Email</span><strong>sarah.ahmed@cu.edu.eg</strong></div>
+      </div>
+    </div>
+  </section>
+  <div class="two-column">
+    <section class="panel">
+      <header class="panel-header"><i class="fa-solid fa-book-open"></i><h2>Enrolled Courses</h2><i class="fa-solid fa-chevron-right arrow"></i></header>
+      <div class="course-list">
+        <div class="course-row"><div class="course-icon flask"><i class="fa-solid fa-flask"></i></div><div class="item-name"><strong>Process Design</strong><small>CH301</small></div><button class="view-course">View Course <i class="fa-solid fa-angle-right"></i></button></div>
+        <div class="course-row"><div class="course-icon thermo"><i class="fa-solid fa-temperature-half"></i></div><div class="item-name"><strong>Thermodynamics</strong><small>CH201</small></div><button class="view-course">View Course <i class="fa-solid fa-angle-right"></i></button></div>
+        <div class="course-row"><div class="course-icon molecule"><i class="fa-solid fa-share-nodes"></i></div><div class="item-name"><strong>Chemical Kinetics</strong><small>CH302</small></div><button class="view-course">View Course <i class="fa-solid fa-angle-right"></i></button></div>
+        <div class="course-row"><div class="course-icon waves"><i class="fa-solid fa-water"></i></div><div class="item-name"><strong>Fluid Mechanics</strong><small>CH204</small></div><button class="view-course">View Course <i class="fa-solid fa-angle-right"></i></button></div>
+      </div>
+    </section>
+    <section class="panel">
+      <header class="panel-header"><i class="fa-solid fa-graduation-cap"></i><h2>Completed Courses</h2><i class="fa-solid fa-chevron-right arrow"></i></header>
+      <div class="completed-list">
+        <div class="completed-row"><span class="check"><i class="fa-solid fa-check"></i></span><div class="item-name"><strong>Mathematics for Engineers</strong><small>MATH101</small></div><span class="completed-date"><i class="fa-regular fa-calendar"></i> Completed on Apr 2024</span></div>
+        <div class="completed-row"><span class="check"><i class="fa-solid fa-check"></i></span><div class="item-name"><strong>General Chemistry</strong><small>CHEM101</small></div><span class="completed-date"><i class="fa-regular fa-calendar"></i> Completed on Feb 2024</span></div>
+        <div class="completed-row"><span class="check"><i class="fa-solid fa-check"></i></span><div class="item-name"><strong>Programming Fundamentals</strong><small>CS101</small></div><span class="completed-date"><i class="fa-regular fa-calendar"></i> Completed on Jan 2024</span></div>
+        <div class="completed-row"><span class="check"><i class="fa-solid fa-check"></i></span><div class="item-name"><strong>English for Academic Purposes</strong><small>ENG101</small></div><span class="completed-date"><i class="fa-regular fa-calendar"></i> Completed on Dec 2023</span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <header class="panel-header"><i class="fa-regular fa-calendar-days"></i><h2>Events</h2><i class="fa-solid fa-chevron-right arrow"></i></header>
+      <div class="event-list">
+        <div class="event-row"><div class="date-box"><span>APR</span><strong>15</strong></div><div class="item-name"><strong>AIChE Career Fair</strong><small>Career Event</small></div><span class="attended">Attended</span></div>
+        <div class="event-row"><div class="date-box"><span>MAR</span><strong>22</strong></div><div class="item-name"><strong>Process Simulation Workshop</strong><small>Workshop</small></div><span class="attended">Attended</span></div>
+        <div class="event-row"><div class="date-box"><span>FEB</span><strong>10</strong></div><div class="item-name"><strong>Industrial Visit - Petrobell</strong><small>Site Visit</small></div><span class="attended">Attended</span></div>
+        <div class="event-row"><div class="date-box"><span>JAN</span><strong>18</strong></div><div class="item-name"><strong>Soft Skills Development</strong><small>Workshop</small></div><span class="attended">Attended</span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <header class="panel-header"><i class="fa-solid fa-award"></i><h2>Certificates</h2><i class="fa-solid fa-chevron-right arrow"></i></header>
+      <div class="certificate-grid">
+        <article class="certificate"><div class="certificate-icon"><i class="fa-regular fa-file-lines"></i></div><div class="certificate-info"><strong>Process Design Certificate</strong><small>AIChE Cairo University Chapter</small><small>Apr 2024</small></div><button class="download" aria-label="Download Process Design Certificate"><i class="fa-solid fa-download"></i></button></article>
+        <article class="certificate"><div class="certificate-icon"><i class="fa-regular fa-file-lines"></i></div><div class="certificate-info"><strong>Thermodynamics Certificate</strong><small>AIChE Cairo University Chapter</small><small>Feb 2024</small></div><button class="download" aria-label="Download Thermodynamics Certificate"><i class="fa-solid fa-download"></i></button></article>
+        <article class="certificate"><div class="certificate-icon"><i class="fa-regular fa-file-lines"></i></div><div class="certificate-info"><strong>Workshop Attendance Certificate</strong><small>AIChE Cairo University Chapter</small><small>Jan 2024</small></div><button class="download" aria-label="Download Workshop Attendance Certificate"><i class="fa-solid fa-download"></i></button></article>
+        <article class="certificate"><div class="certificate-icon"><i class="fa-regular fa-file-lines"></i></div><div class="certificate-info"><strong>Event Participation Certificate</strong><small>AIChE Cairo University Chapter</small><small>Dec 2023</small></div><button class="download" aria-label="Download Event Participation Certificate"><i class="fa-solid fa-download"></i></button></article>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>
