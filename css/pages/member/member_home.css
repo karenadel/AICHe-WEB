@@ -22,38 +22,6 @@ main {
     font-size: 32px;
 }
 
-/* .navbar nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(14px, 2.2vw, 30px);
-    height: 64px;
-    flex: 1;
-}
-
-.navbar nav a {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    position: relative;
-    color: #48545b;
-    font-size: 11px;
-    white-space: nowrap;
-}
-
-.navbar nav a.active {
-    color: var(--orange);
-}
-
-.navbar nav a.active:after {
-    content: "";
-    position: absolute;
-    bottom: 13px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--orange);
-} */
 
 .actions {
     display: flex;
@@ -98,19 +66,6 @@ main {
     font-weight: 700;
 }
 
-/* main {
-    padding: var(--space-lg);
-    width: min(1440px, 100%);
-    margin: auto;
-    padding: 0 clamp(20px, 3.8vw, 48px) 14px;
-} */
-
-/* .hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-} */
 
 .hero {
     position: relative;
@@ -165,24 +120,6 @@ main {
     gap: 10px;
     max-width: 590px;
 }
-/* 
-.purple {
-    background: #F3EEFF;
-    border-color: #E2D7FF;
-}
-    .teal {
-    background: #EAF8F5;
-    border-color: #CDECE5;
-}
-    .yellow {
-    background: #FFFAE8;
-    border-color: #F5E7BD;
-}
-    .orange {
-    background: #FFF4EC;
-    border-color: #FBE0D0;
-}
- */
 
 .stats article {
     min-height: 110px;

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIChE Member Profile</title>
+    <link rel="stylesheet" href="../../css/global/variables.css">
+    <link rel="stylesheet" href="../../css/global/reset.css">
+    <link rel="stylesheet" href="../../css/global/typography.css">
+    <link rel="stylesheet" href="../../css/components/new_navbar.css">
+    <link rel="stylesheet" href="../../css/components/buttons.css">
+     <link rel="stylesheet" href="../../css/components/footer.css">
+    <link rel="stylesheet" href="../../css/pages/member/member_profile.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <div id="navbar-container" data-role="member"></div>
+    <script src="../../js/global/new_navbar.js"></script>
+  <main class="profile-page">
+    <section class="top-grid">
+      <article class="card personal-card">
+        <header class="card-header">
+          <span class="header-icon"><i class="fa-solid fa-user"></i></span>
+          <h2>Personal Information</h2>
+          <button class="edit-button" type="button"><i class="fa-solid fa-pen"></i> Edit</button>
+        </header>
+        <div class="personal-content">
+          <div class="avatar-column">
+            <img class="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=320&q=85" alt="Member profile photo">
+            <div class="member-id">Member ID: M00123</div>
+          </div>
+          <div class="details">
+            <div class="first-column">
+              <div class="detail-row"><i class="fa-solid fa-user"></i><span class="field">Full Name</span><strong>Ereny Emad</strong></div>
+              <div class="detail-row"><i class="fa-solid fa-envelope"></i><span class="field">Email</span><strong>ereny.emad@cu.edu.eg</strong></div>
+              <div class="detail-row"><i class="fa-solid fa-phone"></i><span class="field">Phone</span><strong>+20 111 234 5678</strong></div>
+            </div>
+
+            <div class="second-column">
+              <div class="detail-row"><i class="fa-solid fa-graduation-cap"></i><span class="field">University</span><strong>Cairo University</strong></div>
+              <div class="detail-row"><i class="fa-solid fa-graduation-cap"></i><span class="field">Major</span><strong>Chemical Engineering</strong></div>
+              <div class="detail-row"><i class="fa-solid fa-users"></i><span class="field">Role</span><strong>Member</strong></div>
+            </div>
+           
+          </div>
+        </div>
+      </article>
+
+      <article class="card committee-card">
+        <header class="card-header">
+          <span class="header-icon"><i class="fa-solid fa-people-group"></i></span>
+          <h2>Committee Information</h2>
+        </header>
+        <div class="committee-content">
+          <div class="committee-symbol"><i class="fa-solid fa-people-group"></i></div>
+          <div class="committee-item"><span>Committee</span><strong>Public Relations</strong></div>
+          <div class="committee-item"><span>Position</span><strong>Member</strong></div>
+          <div class="committee-item"><span>Join Date</span><strong>Sep 2025</strong></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="middle-grid">
+      <article class="card points-card">
+        <header class="card-header">
+          <span class="header-icon"><i class="fa-solid fa-star"></i></span>
+          <h2>Points &amp; Rewards</h2>
+        </header>
+        <div class="points-content">
+          <div class="big-star"><i class="fa-solid fa-star"></i></div>
+          <div class="points-number"><strong>320</strong><span>Total Points</span></div>
+          <p>Points are calculated automatically based on your activities, sessions, and participation.</p>
+        </div>
+      </article>
+
+      <article class="card progress-card">
+        <header class="card-header">
+          <span class="header-icon"><i class="fa-solid fa-chart-simple"></i></span>
+          <h2>Progress Overview</h2>
+        </header>
+        <div class="progress-list">
+          <div class="progress-item">
+            <div class="ring blue" style="--progress:80"><span>80%</span></div>
+            <strong>Sessions</strong><small>16 / 20</small>
+          </div>
+          <div class="progress-item">
+            <div class="ring gold" style="--progress:75"><span>75%</span></div>
+            <strong>Lectures</strong><small>15 / 20</small>
+          </div>
+          <div class="progress-item">
+            <div class="ring green" style="--progress:60"><span>60%</span></div>
+            <strong>Tasks</strong><small>12 / 20</small>
+          </div>
+          <div class="progress-item">
+            <div class="ring purple" style="--progress:50"><span>50%</span></div>
+            <strong>Quizzes</strong><small>10 / 20</small>
+          </div>
+          <div class="progress-item">
+            <div class="ring red" style="--progress:40"><span>40%</span></div>
+            <strong>Exams</strong><small>8 / 20</small>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="bottom-grid">
+      <article class="card history-card">
+        <header class="card-header">
+          <span class="header-icon"><i class="fa-regular fa-clock"></i></span>
+          <h2>Point History</h2>
+        </header>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Date</th><th>Activity</th><th>Description</th><th>Points</th><th>Type</th></tr></thead>
+            <tbody>
+              <tr><td>Oct 12, 2025</td><td>Workshop</td><td>Attended Chemical Processes Workshop</td><td class="earned-points">+50</td><td><span class="status earned">Earned</span></td></tr>
+              <tr><td>Oct 5, 2025</td><td>Session</td><td>Committee Session</td><td class="earned-points">+30</td><td><span class="status earned">Earned</span></td></tr>
+              <tr><td>Sep 28, 2025</td><td>Task</td><td>Submitted Assignment</td><td class="earned-points">+20</td><td><span class="status earned">Earned</span></td></tr>
+              <tr><td>Sep 21, 2025</td><td>Quiz</td><td>Quiz 1 - Thermodynamics</td><td class="earned-points">+15</td><td><span class="status earned">Earned</span></td></tr>
+              <tr><td>Sep 14, 2025</td><td>Event</td><td>AIChE Event Participation</td><td class="earned-points">+40</td><td><span class="status earned">Earned</span></td></tr>
+              <tr><td>Sep 7, 2025</td><td>Late Submission</td><td>Project Report</td><td class="deducted-points">-10</td><td><span class="status deducted">Deducted</span></td></tr>
+              <tr><td>Aug 30, 2025</td><td>Task</td><td>Incomplete Task</td><td class="deducted-points">-5</td><td><span class="status deducted">Deducted</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="card reports-card">
+        <header class="card-header">
+          <span class="header-icon"><i class="fa-solid fa-file-lines"></i></span>
+          <h2>Monthly Reports</h2>
+        </header>
+        <div class="reports-list">
+          <div class="report-row report-heading"><span>Month</span><span>Status</span><span>View</span></div>
+          <div class="report-row"><span>October 2025</span><span class="status completed">Completed</span><button class="view-button" type="button" aria-label="View October report"><i class="fa-solid fa-eye"></i> View</button></div>
+          <div class="report-row"><span>September 2025</span><span class="status completed">Completed</span><button class="view-button" type="button" aria-label="View September report"><i class="fa-solid fa-eye"></i> View</button></div>
+          <div class="report-row"><span>August 2025</span><span class="status completed">Completed</span><button class="view-button" type="button" aria-label="View August report"><i class="fa-solid fa-eye"></i> View</button></div>
+          <div class="report-row"><span>July 2025</span><span class="status completed">Completed</span><button class="view-button" type="button" aria-label="View July report"><i class="fa-solid fa-eye"></i> View</button></div>
+          <div class="report-row"><span>June 2025</span><span class="status completed">Completed</span><button class="view-button" type="button" aria-label="View June report"><i class="fa-solid fa-eye"></i> View</button></div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

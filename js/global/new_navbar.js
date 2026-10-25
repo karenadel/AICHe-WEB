@@ -19,7 +19,7 @@ const navLinksByRole = {
     ],
 
     member: [
-        { text: "Home", href: "member-home.html" }, 
+        { text: "Home", href: "member_home.html" }, 
         { text: "Workshops & Courses", href: "#" },
         { text: "Events & Site Visits", href: "#" },
         { text: "Sessions", href: "#" },
