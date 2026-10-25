@@ -1,3 +1,4 @@
+/* AICHE brand system — based on the supplied Reference Colors.png */
 :root {
   /* --color-bg: #FAF6EF;
   --color-primary: #E8722C;
@@ -12,16 +13,41 @@
     /* Shared status colors (already used on Student Home — reused here for consistency)*/
   --color-completed: #E8EFE2;
   --color-in-progress: #FCE4D6;
+  --color-primary: #F15A0A;       /* AICHE Orange 500 */
+  --color-primary-hover: #D84300; /* Orange 600 */
+  --color-primary-soft: #FFF0E4;  /* Orange 50/100 blend */
+  --color-secondary: #FFC107;     /* AICHE Yellow */
+  --color-secondary-soft: #FFF3B0;
+
+  --color-bg: #F3F4F6;             /* Light Gray */
+  --color-surface: #FFFFFF;
+  --color-white: #FFFFFF;
+  --color-dark: #1F2937;           /* Dark Gray */
+  --color-sage: #22C55E;            /* Legacy token mapped to brand success green */
+  --color-text: #1F2937;
+  --color-text-muted: #6B7280;     /* Medium Gray */
+  --color-border: #D9DDE2;
+
+  --color-blue: #0066CC;
+  --color-teal: #009688;
+  --color-green: #22C55E;
+  --color-navy: #1E3A8A;
+  --color-purple: #7C3AED;
+  --color-danger: #C62828;
+
+  /* Status colors */
+  --color-completed: #E5F6EA;
+  --color-in-progress: #FFF0E4;
   --color-enrolled: #D8F3F1;
-  --color-certificate: #FCE4D6;
+  --color-certificate: #FFF3B0;
 
   /* Admin dashboard stat colors */
-  --color-students: #108D84;
-  --color-members: #B4C4A8;
-  --color-courses: #E8722C;
-  --color-workshops: #D8A15C;
-  --color-events: #6B8CAE;
-  --color-sitevisits: #A65B4A;
+  --color-students: #009688;
+  --color-members: #22C55E;
+  --color-courses: #F15A0A;
+  --color-workshops: #FFC107;
+  --color-events: #0066CC;
+  --color-sitevisits: #7C3AED;
 
      --color-bg: #F3F4F6;
     --color-primary: #F15A0A;
@@ -40,11 +66,9 @@
     --line: #E2E5E9;
 
   --font-base: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
-
   --space-xs: 8px;
   --space-sm: 16px;
   --space-md: 24px;

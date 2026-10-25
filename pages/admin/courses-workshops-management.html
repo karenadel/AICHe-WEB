@@ -1,0 +1,293 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Courses & Workshops Management — AICHE Cairo</title>
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet" href="../../css/global/variables.css" />
+
+    <link rel="stylesheet" href="../../css/global/reset.css" />
+
+    <link rel="stylesheet" href="../../css/global/typography.css" />
+
+    <!-- Shared Components -->
+
+    <link rel="stylesheet" href="../../css/components/navbar.css" />
+
+    <link rel="stylesheet" href="../../css/components/buttons.css" />
+
+    <link rel="stylesheet" href="../../css/components/cards.css" />
+
+    <link rel="stylesheet" href="../../css/components/admin-layout.css" />
+
+    <!-- Page CSS -->
+
+    <link
+      rel="stylesheet"
+      href="../../css/pages/admin/courses-workshops-management.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+
+    <main class="dashboard">
+      <!-- ====================================================
+
+             PAGE HEADER
+
+             ==================================================== -->
+
+      <section class="dashboard__header">
+        <span class="eyebrow">Manage Content</span>
+
+        <h1>Courses & Workshops</h1>
+
+        <p>Create and manage courses and workshops for your committee.</p>
+      </section>
+
+      <!-- ====================================================
+
+             COURSES SECTION
+
+             ==================================================== -->
+
+      <section class="management-section courses-section">
+        <div class="page-header">
+          <div>
+            <span class="section-eyebrow">Course Management</span>
+
+            <h2>Courses</h2>
+
+            <p>Create and manage courses and their enrolled students.</p>
+          </div>
+
+          <button type="button" class="action-btn" id="addCourseBtn" hidden>
+            + Add Course
+          </button>
+        </div>
+
+        <!-- Course Search -->
+        <div class="page-toolbar">
+          <label class="search-field">
+            <span class="search-field__icon" aria-hidden="true">⌕</span>
+            <input type="search" id="courseSearch" placeholder="Search courses..." aria-label="Search courses" />
+          </label>
+        </div>
+
+        <!-- Courses Grid -->
+
+        <section class="courses-grid" id="coursesGrid">
+          <!-- Courses rendered by JS -->
+        </section>
+      </section>
+
+      <!-- ====================================================
+
+             DIVIDER
+
+             ==================================================== -->
+
+      <div class="management-divider">
+        <span>Workshops</span>
+      </div>
+
+      <!-- ====================================================
+
+             WORKSHOPS SECTION
+
+             ==================================================== -->
+
+      <section class="management-section workshops-section">
+        <div class="page-header">
+          <div>
+            <span class="section-eyebrow">Workshop Management</span>
+
+            <h2>Workshops</h2>
+
+            <p>Manage workshops and their sessions.</p>
+          </div>
+
+          <button type="button" class="action-btn" id="addWorkshopBtn" hidden>
+            + Add Workshop
+          </button>
+        </div>
+
+        <!-- Workshop Search and Cards -->
+        <div class="page-toolbar">
+          <label class="search-field">
+            <span class="search-field__icon" aria-hidden="true">⌕</span>
+            <input type="search" id="workshopSearch" placeholder="Search workshops..." aria-label="Search workshops" />
+          </label>
+          <span class="workshop-count" id="workshopCount">0 Workshops</span>
+        </div>
+
+        <section class="courses-grid workshops-grid" id="workshopsGrid" aria-live="polite">
+          <!-- Workshop cards rendered by JS -->
+        </section>
+        <div class="empty-state" id="emptyState" hidden>
+          <h3>No workshops found</h3>
+          <p>Try a different search, or add a workshop.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ADD / EDIT COURSE MODAL -->
+    <div class="modal" id="courseModal" hidden aria-hidden="true">
+      <div class="modal__overlay" data-close-course-modal></div>
+      <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="courseModalTitle">
+        <div class="modal__header">
+          <div><span class="section-eyebrow">Course</span><h2 id="courseModalTitle">Add Course</h2></div>
+          <button type="button" class="modal__close" id="closeCourseModalBtn" aria-label="Close">×</button>
+        </div>
+        <form id="courseForm">
+          <div class="form-group"><label for="courseName">Course Title</label><input id="courseName" name="courseName" required placeholder="Enter course title" /></div>
+          <div class="form-group"><label for="courseDescription">Short Description</label><textarea id="courseDescription" name="courseDescription" rows="4" required placeholder="Describe what students will learn"></textarea></div>
+          <div class="form-group"><label for="courseInstructor">Instructor</label><input id="courseInstructor" name="courseInstructor" required placeholder="Enter instructor name" /></div>
+          <div class="form-row">
+            <div class="form-group"><label for="courseLevel">Level</label><select id="courseLevel" name="courseLevel"><option>Beginner</option><option>Intermediate</option><option>Advanced</option><option>All levels</option></select></div>
+            <div class="form-group"><label for="courseDuration">Duration</label><input id="courseDuration" name="courseDuration" placeholder="e.g. 6 weeks" /></div>
+          </div>
+          <div class="form-group"><label for="courseImage">Image URL (optional)</label><input id="courseImage" name="courseImage" type="url" placeholder="https://..." /></div>
+          <div class="modal__actions"><button type="button" class="action-btn action-btn--secondary" id="cancelCourseBtn">Cancel</button><button type="submit" class="action-btn">Save Course</button></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ========================================================
+
+         ADD / EDIT WORKSHOP MODAL
+
+         ======================================================== -->
+
+    <div class="modal" id="workshopModal" hidden aria-hidden="true">
+      <div class="modal__overlay" data-close-workshop-modal></div>
+
+      <div
+        class="modal__content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="workshopModalTitle"
+      >
+        <!-- Modal Header -->
+
+        <div class="modal__header">
+          <div>
+            <span class="section-eyebrow"> Workshop </span>
+
+            <h2 id="workshopModalTitle">Add Workshop</h2>
+          </div>
+
+          <button
+            type="button"
+            class="modal__close"
+            id="closeWorkshopModalBtn"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+
+        <!-- Workshop Form -->
+
+        <form id="workshopForm" novalidate>
+          <!-- Workshop Title -->
+
+          <div class="form-group">
+            <label for="workshopName"> Workshop Title </label>
+
+            <input
+              type="text"
+              id="workshopName"
+              name="workshopName"
+              placeholder="Enter workshop title"
+              required
+            />
+          </div>
+
+          <!-- Workshop Description -->
+
+          <div class="form-group">
+            <label for="workshopDescription"> Description </label>
+
+            <textarea
+              id="workshopDescription"
+              name="workshopDescription"
+              rows="5"
+              placeholder="Enter workshop description"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="workshopImage">Image URL (optional)</label>
+            <input type="url" id="workshopImage" name="workshopImage" placeholder="https://..." />
+          </div>
+
+          <!-- Instructor -->
+          <div class="form-group">
+            <label for="workshopInstructor"> Instructor / Speaker </label>
+
+            <input
+              type="text"
+              id="workshopInstructor"
+              name="workshopInstructor"
+              placeholder="Enter instructor or speaker"
+              required
+            />
+          </div>
+
+          <!-- Form Actions -->
+
+          <div class="modal__actions">
+            <button
+              type="button"
+              class="action-btn action-btn--secondary"
+              id="cancelWorkshopBtn"
+            >
+              Cancel
+            </button>
+
+            <button type="submit" class="action-btn">Save Workshop</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+
+    <footer>
+      <p>© 2026 AICHE Cairo Student Chapter</p>
+    </footer>
+
+    <!-- ========================================================
+
+         JAVASCRIPT
+
+         ======================================================== -->
+
+    <script src="../../js/global/main.js"></script>
+
+    <script src="../../js/global/navbar.js"></script>
+
+    <script src="../../js/global/admin-auth.js"></script>
+
+    <!-- Courses -->
+
+    <script src="../../js/pages/admin/courses-management.js"></script>
+
+    <!-- Workshops -->
+
+    <script src="../../js/pages/admin/workshops-management.js"></script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Member Progress — AIChE Cairo</title>
+    <link rel="stylesheet" href="../../css/global/variables.css" />
+    <link rel="stylesheet" href="../../css/global/reset.css" />
+    <link rel="stylesheet" href="../../css/global/typography.css" />
+    <link rel="stylesheet" href="../../css/components/navbar.css" />
+    <link rel="stylesheet" href="../../css/components/admin-layout.css" />
+    <link rel="stylesheet" href="../../css/pages/admin/member-progress.css" />
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+    <a href="dashboard.html" class="back-link">←Back to Dashboard</a>
+    <main class="dashboard-layout">
+      <aside class="sidebar">
+        <div class="sidebar__title">Management</div>
+        <nav class="sidebar__list">
+          <a href="member-progress.html">Member Progress</a
+          ><a href="attendance.html">Attendance</a
+          ><a href="points.html">Points</a>
+        </nav>
+      </aside>
+      <section class="dashboard">
+        <header class="dashboard__header">
+          <span class="eyebrow">Members</span>
+          <h1>Member Progress</h1>
+        </header>
+        <section class="panel">
+          <div class="toolbar">
+            <label
+              >Member
+              <select id="memberFilter"></select></label
+            ><label
+              >Committee
+              <select id="committeeFilter">
+                <option value="all">All committees</option>
+              </select></label
+            >
+          </div>
+          <div id="memberSummary" class="summary-grid"></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Committee</th>
+                  <th>Sessions</th>
+                  <th>Tasks</th>
+                  <th>Quizzes</th>
+                  <th>Exams</th>
+                  <th>Total points</th>
+                </tr>
+              </thead>
+              <tbody id="progressRows"></tbody>
+            </table>
+          </div>
+          <h2>Point history</h2>
+          <div id="history" class="history"></div>
+        </section>
+      </section>
+    </main>
+    <script src="../../js/global/navbar.js"></script>
+    <script src="../../js/global/admin-auth.js"></script>
+    <script src="../../js/pages/admin/member-progress.js"></script>
+  </body>
+</html>
