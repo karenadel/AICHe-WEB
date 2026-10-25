@@ -1,4 +1,4 @@
-fetch("footer.html")
+fetch("../../components/footer/footer.html")
   .then(response => {
     if (!response.ok) {
       throw new Error("Footer file could not be loaded");
